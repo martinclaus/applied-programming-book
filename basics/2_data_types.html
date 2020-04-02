@@ -1,0 +1,1852 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Data Types</title>
+  <meta name="description" content="        Data Types    In programing data is organized in structures called data types. The most simple data types are called primitive data types and represe...">
+
+  <link rel="canonical" href="http://applied-programming-book.github.io//basics/2_data_types.html">
+  <link rel="alternate" type="application/rss+xml" title="Applied Programming for Physics of the Earth System" href="http://applied-programming-book.github.io//feed.xml">
+
+  <meta property="og:url"         content="http://applied-programming-book.github.io//basics/2_data_types.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Data Types" />
+<meta property="og:description" content="        Data Types    In programing data is organized in structures called data types. The most simple data types are called primitive data types and represe..." />
+<meta property="og:image"       content="http://applied-programming-book.github.io/images/logo/logo.png" />
+
+<meta name="twitter:card" content="summary">
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": "http://applied-programming-book.github.io//basics/2_data_types.html",
+  "headline": "Data Types",
+  "datePublished": "2020-04-02T20:57:53+02:00",
+  "dateModified": "2020-04-02T20:57:53+02:00",
+  "description": "        Data Types    In programing data is organized in structures called data types. The most simple data types are called primitive data types and represe...",
+  "author": {
+    "@type": "Person",
+    "name": "Martin Claus"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://applied-programming-book.github.io/",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "http://applied-programming-book.github.io/",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo/favicon.ico">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    },
+    
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
+
+
+  <!-- DOM updating function -->
+  <script src="/assets/js/page/dom-update.js"></script>
+
+  <!-- Selectors for elements on the page -->
+  <script src="/assets/js/page/documentSelectors.js"></script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '/';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
+  <script src="/assets/js/page/anchors.js" async></script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+
+  <!-- Load the auto-generating TOC (non-async otherwise the TOC won't load w/ turbolinks) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.8.1/tocbot.min.js" async></script>
+  <script src="/assets/js/page/tocbot.js"></script>
+
+  <!-- Google analytics -->
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
+
+  <!-- Load custom website scripts -->
+  <script src="/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+<script>
+/**
+  * To auto-embed hub URLs in interact links if given in a RESTful fashion
+ */
+
+function getJsonFromUrl(url) {
+  var query = url.split('?');
+  if (query.length < 2) {
+    // No queries so just return false
+    return false;
+  }
+  query = query[1];
+  // Collect REST params into a dictionary
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+  });
+  return result;
+}
+    
+function dict2param(dict) {
+    params = Object.keys(dict).map(function(k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(dict[k])
+    });
+    return params.join('&')
+}
+
+// Parse a Binder URL, converting it to the string needed for JupyterHub
+function binder2Jupyterhub(url) {
+  newUrl = {};
+  parts = url.split('v2/gh/')[1];
+  // Grab the base repo information
+  repoinfo = parts.split('?')[0];
+  var [org, repo, ref] = repoinfo.split('/');
+  newUrl['repo'] = ['https://github.com', org, repo].join('/');
+  newUrl['branch'] = ref
+  // Grab extra parameters passed
+  params = getJsonFromUrl(url);
+  if (params['filepath'] !== undefined) {
+    newUrl['subPath'] = params['filepath']
+  }
+  return dict2param(newUrl);
+}
+
+// Filter out potentially unsafe characters to prevent xss
+function safeUrl(url)
+{
+   return String(encodeURIComponent(url))
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+}
+
+function addParamToInternalLinks(hub) {
+  var links = document.querySelectorAll("a").forEach(function(link) {
+    var href = link.href;
+    // If the link is an internal link...
+    if (href.search("http://applied-programming-book.github.io") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+      // Assume we're an internal link, add the hub param to it
+      var params = getJsonFromUrl(href);
+      if (params !== false) {
+        // We have REST params, so append a new one
+        params['jupyterhub'] = hub;
+      } else {
+        // Create the REST params
+        params = {'jupyterhub': hub};
+      }
+      // Update the link
+      var newHref = href.split('?')[0] + '?' + dict2param(params);
+      link.setAttribute('href', decodeURIComponent(newHref));
+    }
+  });
+  return false;
+}
+
+
+// Update interact links
+function updateInteractLink() {
+    // hack to make this work since it expects a ? in the URL
+    rest = getJsonFromUrl("?" + location.search.substr(1));
+    jupyterHubUrl = rest['jupyterhub'];
+    var hubType = null;
+    var hubUrl = null;
+    if (jupyterHubUrl !== undefined) {
+      hubType = 'jupyterhub';
+      hubUrl = jupyterHubUrl;
+    }
+
+    if (hubType !== null) {
+      // Sanitize the hubUrl
+      hubUrl = safeUrl(hubUrl);
+
+      // Add HTTP text if omitted
+      if (hubUrl.indexOf('http') < 0) {hubUrl = 'http://' + hubUrl;}
+      var interactButtons = document.querySelectorAll("button.interact-button")
+      var lastButton = interactButtons[interactButtons.length-1];
+      var link = lastButton.parentElement;
+
+      // If we've already run this, skip the link updating
+      if (link.nextElementSibling !== null) {
+        return;
+      }
+
+      // Update the link and add context div
+      var href = link.getAttribute('href');
+      if (lastButton.id === 'interact-button-binder') {
+        // If binder links exist, we need to re-work them for jupyterhub
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // If localhost, assume we're working from a local Jupyter server and remove `/hub`
+          first = [hubUrl, 'git-sync'].join('/')
+        } else {
+          first = [hubUrl, 'hub', 'user-redirect', 'git-sync'].join('/')
+        }
+        href = first + '?' + binder2Jupyterhub(href);
+      } else {
+        // If interact button isn't binderhub, assume it's jupyterhub
+        // If JupyterHub links, we only need to replace the hub url
+        href = href.replace("https://weblab.uni-kiel.de", hubUrl);
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // Assume we're working from a local Jupyter server and remove `/hub`
+          href = href.replace("/hub/user-redirect", "");
+        }
+      }
+      link.setAttribute('href', decodeURIComponent(href));
+
+      // Add text after interact link saying where we're launching
+      hubUrlNoHttp = decodeURIComponent(hubUrl).replace('http://', '').replace('https://', '');
+      link.insertAdjacentHTML('afterend', '<div class="interact-context">on ' + hubUrlNoHttp + '</div>');
+
+      // Update internal links so we retain the hub url
+      addParamToInternalLinks(hubUrl);
+    }
+}
+
+runWhenDOMLoaded(updateInteractLink)
+document.addEventListener('turbolinks:load', updateInteractLink)
+</script>
+
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+initFunction(initQuery);
+</script>
+
+  <!-- Load JS that depends on site variables -->
+  <script src="/assets/js/page/copy-button.js" async></script>
+
+  <!-- Hide cell code -->
+  <script src="/assets/js/page/hide-cell.js" async></script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/assets/css/styles.css",
+        style: "#textbook_content {padding-top: 40px};",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList,
+        documentTitle: "Made with Jupyter Book"
+    })
+};
+
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+
+initFunction(initPrint)
+</script>
+
+</head>
+
+  <body>
+    <!-- Include the ThebeLab config so it gets reloaded on each page -->
+    <script type="text/x-thebe-config">{
+    requestKernel: true,
+    binderOptions: {
+    repo: "YOUR-ORG/YOUR-REPO",
+    ref: "gh-pages",
+    },
+    codeMirrorConfig: {
+    theme: "abcdef",
+    mode: "python"
+    },
+    kernelOptions: {
+    kernelName: "python3",
+    path: "content/basics"
+    }
+}
+</script>
+
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="http://applied-programming-book.github.io"><img src="/images/logo/logo.png" class="textbook_logo" id="sidebar-logo" alt="textbook logo" data-turbolinks-permanent/></a>
+  <h2 class="c-sidebar__title">Applied Programming for Physics of the Earth System</h2>
+  <ul class="c-sidebar__chapters">
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/intro">
+        <a class="c-sidebar__entry"
+          href="/intro.html"
+        >
+          
+          Home
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/work_environments">
+        <a class="c-sidebar__entry"
+          href="/work_environments.html"
+        >
+          
+          Work environments
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="https://github.com/jupyter/jupyter-book">
+        <a class="c-sidebar__entry"
+          href="https://github.com/jupyter/jupyter-book"
+        >
+          
+          GitHub repository
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/introduction/introduction">
+        <a class="c-sidebar__entry"
+          href="/introduction/introduction.html"
+        >
+          
+            1.
+          
+          Introduction
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/basics/basics">
+        <a class="c-sidebar__entry"
+          href="/basics/basics.html"
+        >
+          
+            2.
+          
+          Basics
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/basics/primitive_data_types">
+              <a class="c-sidebar__entry"
+                href="/basics/primitive_data_types.html"
+              >
+                
+                Primitive Data Types
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/basics/sequences">
+              <a class="c-sidebar__entry"
+                href="/basics/sequences.html"
+              >
+                
+                Sequences
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/basics/program_flow_and_structure">
+              <a class="c-sidebar__entry"
+                href="/basics/program_flow_and_structure.html"
+              >
+                
+                Program Flow
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/basics/functions">
+              <a class="c-sidebar__entry"
+                href="/basics/functions.html"
+              >
+                
+                Functions
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/basics/oop">
+              <a class="c-sidebar__entry"
+                href="/basics/oop.html"
+              >
+                
+                Object-oriented Programming
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+  </ul>
+  <p class="sidebar_footer">Powered by <a href="https://jupyterbook.org">Jupyter Book</a></p>
+</nav>
+
+      
+      <div class="c-topbar" id="top-navbar">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <div class="c-topbar__buttons">
+    <button
+      id="js-sidebar-toggle"
+      class="hamburger hamburger--arrowalt is-active"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <div class="buttons">
+<div class="download-buttons-dropdown">
+    <button id="dropdown-button-trigger" class="interact-button"><img src="/assets/images/download-solid.svg" alt="Download" /></button>
+    <div class="download-buttons">
+        <a href="/content/basics/2_data_types.ipynb" download>
+        <button id="interact-button-download" class="interact-button">.ipynb</button>
+        </a>
+        
+        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">.pdf</button></a>
+    </div>
+</div>
+
+
+  
+  
+  
+  
+
+
+
+
+
+<a href="https://weblab.uni-kiel.de/hub/user-redirect/git-pull?repo=https://github.com//YOUR-ORG/YOUR-REPO&amp;branch=gh-pages&amp;subPath=content%2Fbasics%2F2_data_types.ipynb&amp;app=lab"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/assets/images/logo_jupyterhub.svg" alt="Interact" />Open on Weblab</button></a>
+
+
+
+
+</div>
+
+  </div>
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="sidebar__right">
+    <header><h4 class="nav__title"><img src="/assets/images/list-solid.svg" alt="Search" />   On this page</h4></header>
+    <nav class="onthispage">
+    </nav>
+  </aside>
+  <a href="/search.html" class="topbar-right-button" id="search-button">
+    <img src="/assets/images/search-solid.svg" alt="Search" />
+  </a>
+</div>
+
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+                  <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">Data Types</div>
+</div>
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In programing data is organized in structures called <em>data types</em>. The most simple data types are called <em>primitive data types</em> and represent the smallest possible unit for information. In contrast, <em>non-primitive data types</em> consist of primitive ones and are used to organize more complex or larger amounts of data. To get the type of an object in Python you can use the built-in function <a href="https://docs.python.org/3.8/library/functions.html#type"><code>type()</code></a>.</p>
+<h1 id="Primitive-data-types">Primitive data types<a class="anchor-link" href="#Primitive-data-types"> </a></h1><p>As in most languages, the <a href="https://docs.python.org/3/library/stdtypes.html#built-in-typ">primitive data types in Python</a> are:</p>
+<ul>
+<li>Boolean</li>
+<li>Integer</li>
+<li>Float</li>
+<li>Complex</li>
+<li>String</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Boolean">Boolean<a class="anchor-link" href="#Boolean"> </a></h2><p>Booleans are used for truth values of a binary logic. A boolean variable can take two different values, true or false, represented in Python by two constant objects: <code>True</code> and <code>False</code>. <strong>Note the capitalization!</strong> The type, that is the kind of data, of a boolean or logical variable is <code>bool</code>. Typically, booleans are returned if comparative operations are performed.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_hide_output">
+
+<div class="cell border-box-sizing code_cell rendered tag_hide_output">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="kc">False</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;bool&#39;&gt; &lt;class &#39;bool&#39;&gt;
+&lt;class &#39;bool&#39;&gt;
+True
+True
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Python knows the following comparative operators:</p>
+<table>
+<thead><tr>
+<th>Operator</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;</code></td>
+<td>less then</td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>less or equal</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>greater</td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>greater or equal</td>
+</tr>
+<tr>
+<td><code>==</code></td>
+<td>equal</td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>unequal</td>
+</tr>
+<tr>
+<td><code>is</code></td>
+<td>same object</td>
+</tr>
+<tr>
+<td><code>is not</code></td>
+<td>not the same object</td>
+</tr>
+</tbody>
+</table>
+<p>Additionally, boolean expressions can be written with the logical operators <code>and</code>, <code>or</code> and <code>not</code>:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_hide_output">
+
+<div class="cell border-box-sizing code_cell rendered tag_hide_output">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">((</span><span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">x</span> <span class="o">%</span> <span class="mi">7</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">((</span><span class="n">x</span> <span class="o">%</span> <span class="mi">7</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>True
+True
+True
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The function <a href="https://docs.python.org/3.8/library/functions.html#bool"><code>bool()</code></a> transforms any object to a booleans. Any object is considered "to be <code>True</code>" except:</p>
+<ul>
+<li><code>None</code> and <code>False</code>.</li>
+<li>zero of any numeric type: <code>0</code>, <code>0.0</code>, <code>0j</code>, <code>Decimal(0)</code>, <code>Fraction(0, 1)</code></li>
+<li>empty sequences and collections: <code>''</code>, <code>()</code>, <code>[]</code>, <code>{}</code>, <code>set()</code>, <code>range(0)</code>
+which are considered to be <code>False</code>.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Integer">Integer<a class="anchor-link" href="#Integer"> </a></h2><p>Integers correspond to the set of natural numbers in mathematics. They include the zero and can be positive or negative.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">positive_number</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">negative_number</span> <span class="o">=</span> <span class="o">-</span><span class="mi">13</span>
+<span class="n">null</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Unlike other programing languages, Python only has one integer data type. It does not differentiate between numbers with or without sign or between certain value ranges. <strong>WRITE SOMETHIGN ABOUT THE MEMORY LAYOUT OF INTEGER IN MOST PROGRAMMING LANGUAGES AND IN PYTHON</strong></p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This interger would be to big for many other programming languages</span>
+<span class="n">big_number</span> <span class="o">=</span> <span class="mi">1000000000000000000000000000000000</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">big_number</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;int&#39;&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It is possible to transform other primitive data types to integer using the function <a href="https://docs.python.org/3.8/library/functions.html#int"><code>int</code></a>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">decimal_number</span> <span class="o">=</span> <span class="mf">42.1</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">decimal_number</span><span class="p">))</span>
+
+<span class="n">year</span> <span class="o">=</span> <span class="s2">&quot;1999&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">year</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;101&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>42
+1999
+5
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Float">Float<a class="anchor-link" href="#Float"> </a></h2><p>Floats are real numbers and have the type <code>float</code>. They are used to represent decimal numbers.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dezimal_number</span> <span class="o">=</span> <span class="mf">42.33</span>
+<span class="n">different_dezimal_number</span> <span class="o">=</span> <span class="o">-</span><span class="mf">34.2424</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dezimal_number</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;float&#39;&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The function <a href="https://docs.python.org/3.8/library/functions.html#isinstance"><code>isinstance()</code></a> can be used to check whether an object is a float (or actually of any other data type).</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>True
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Integers need to be written without a decimal point, but floats always need the dot! The numbers <code>55</code> and <code>55.0</code> have the same value, but are of different type!</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">55</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">55.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>True
+False
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The function <a href="https://docs.python.org/3.8/library/functions.html#float"><code>float()</code></a> transforms different data types to floats</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">number</span><span class="p">))</span>
+
+<span class="n">address_number</span> <span class="o">=</span> <span class="s2">&quot;33&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">address_number</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>5.0
+33.0
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>WRITE SOMETHING ABOUT ROUND OFF ERRORS</strong></p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Complex">Complex<a class="anchor-link" href="#Complex"> </a></h2><p>Complex numbers have the type <code>complex</code> and are written as <code>&lt;real part&gt;+&lt;imaginary part&gt;j</code>.
+Note the <code>j</code> right after the imaginary part which represents the imaginary unit.
+There is also the built-in function <a href="https://docs.python.org/3.8/library/functions.html#complex"><code>complex()</code></a> for creating a complex number.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_hide_output">
+
+<div class="cell border-box-sizing code_cell rendered tag_hide_output">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># this is a complex number</span>
+<span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">==</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">3</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>True
+&lt;class &#39;complex&#39;&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_hide_output">
+
+<div class="cell border-box-sizing code_cell rendered tag_hide_output">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># this is a syntax error</span>
+<span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span> <span class="n">j</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-26-4d6b0a85eab6&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">7</span>
+<span class="ansi-red-fg">    3 + 1 j</span>
+          ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can do any kind of arithmetics with complex numbers.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="mi">1</span><span class="n">j</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span><span class="n">j</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2j
+(1+4j)
+(-0-1j)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Write something about real and imag attributes and conjugate method</strong></p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Strings">Strings<a class="anchor-link" href="#Strings"> </a></h2><p>Strings are simply strings of characters (so basically text) and need to be framed by single or double qoutation marks.</p>
+<div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;This is a string&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">text2</span> <span class="o">=</span> <span class="s1">&#39;This is also a string&#39;</span>
+<span class="n">text3</span> <span class="o">=</span> <span class="s1">&#39;This is a text that contains &quot;quotation marks&quot;&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text3</span><span class="p">)</span>
+</pre></div>
+<p>In python 3, all strings are encoded in <a href="https://de.wikipedia.org/wiki/Unicode">unicode</a>. So they can contain special characters.</p>
+<div class="highlight"><pre><span></span><span class="n">coordinates</span> <span class="o">=</span> <span class="s2">&quot;0°N 23°W&quot;</span>
+<span class="n">equations</span>   <span class="o">=</span> <span class="s2">&quot;∂η/∂t + ∂(Hu)/∂x + ∂(Hv)/∂y = 0&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">equations</span><span class="p">)</span>
+</pre></div>
+<p><strong>Questions:</strong></p>
+<ul>
+<li>When is it appropriate to use single/double quotation marks?</li>
+<li>What do <code>\n</code> and <code>\t</code> mean?</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In contrast to <code>int</code> and <code>floats</code>, strings have very useful <em>methods</em> to work with, e.g. <code>capitalize()</code>. Methods are used with dot notation and always refer to the object to which they are appended:</p>
+<div class="highlight"><pre><span></span><span class="n">first_name</span> <span class="o">=</span> <span class="s1">&#39;bernd&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
+</pre></div>
+<p>Here is the <a href="https://docs.python.org/3/library/stdtypes.html#str.format">format method</a> <code>format()</code> as an example:</p>
+<div class="highlight"><pre><span></span><span class="s2">&quot;The sum of 5 + 5 is </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">5</span><span class="o">+</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+<p>There are many <a href="https://docs.python.org/3/library/stdtypes.html#string-methods">useful methods</a> to work with strings.</p>
+<p><strong>Questions:</strong></p>
+<ul>
+<li>How does the <code>format()</code> method work?</li>
+<li>How do I check, if a string represents a number?</li>
+<li>How do I check, if a string ends with a certain chain of charakters?</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Sequences">Sequences<a class="anchor-link" href="#Sequences"> </a></h1><p>In python strings are sequences! Sequences are types of data, which constist of an ordered chain of elements. This means that certain elements of a sequence can be addressed with an index of type integer. The index is framed in square brackets to differentiate from the notation for calling a function.</p>
+<div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;Python&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">word</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="n">word2</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
+<span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">c3</span> <span class="o">=</span> <span class="n">word2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c3</span><span class="p">)</span>
+</pre></div>
+<p>Indexing starts with <code>zero</code> in python! Indexing of the word <code>"Python"</code>:</p>
+
+<pre><code>+---+---+---+---+---+---+
+| P | y | t | h | o | n |
++---+---+---+---+---+---+
+0   1   2   3   4   5   6
+-6  -5  -4  -3  -2  -1</code></pre>
+<p><strong>Questions:</strong></p>
+<ul>
+<li>What is the meaning of negative indices?</li>
+<li>What is the meaning of <code>c1, c2, c3 = word2</code>?</li>
+<li>How does the arithmetic work for sequences?</li>
+<li>What is the meaning of <code>'y' in word</code>?</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Slicing">Slicing<a class="anchor-link" href="#Slicing"> </a></h2><p>Slicing builds a new sequence from a fromer one, using a sequence of indices. Therefore the notation <code>start:stop:stride</code> is used. If one of the parameters is not stated the following default values are used: <code>start=0</code>, <code>stop=end</code>, <code>stride=1</code>.</p>
+<div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;Python&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">3</span><span class="p">:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+<p><strong>Fragen:</strong></p>
+<ul>
+<li>Was does stride mean?</li>
+<li>What is the result of <code>s[:i] + s[i:]</code>?</li>
+<li>What is the length of <code>s[n:m]</code>?</li>
+</ul>
+<p>Further sequences are tuples and lists.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Tuples">Tuples<a class="anchor-link" href="#Tuples"> </a></h2><p><a href="https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences">Tuples</a> are ordered sequences of arbitrary data objects. A tuple is build with a comma seperated listing, which can be set in round brackets:</p>
+<div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">23.45</span><span class="p">,</span> <span class="s2">&quot;some text&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">t2</span> <span class="o">=</span> <span class="mf">56.</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+</pre></div>
+<p>As for strings, elements of tuples can be addressed with indeces:</p>
+<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+<p><strong>Questions:</strong></p>
+<ul>
+<li>Is <code>(1) == (1,)</code>?</li>
+<li>When are tuples equal? When are they identical?</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Lists">Lists<a class="anchor-link" href="#Lists"> </a></h2><p><a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">Lists</a> are sequences of arbitrary objects, similar to tuples. Lists are always set in square brackets.</p>
+<div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">squares</span> <span class="o">+</span> <span class="p">[</span><span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">])</span>
+</pre></div>
+<p>The difference to tuples is, that lists are <em>changeable</em>. Or in technical language <code>mutable</code>.</p>
+<div class="highlight"><pre><span></span><span class="n">stuff</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;ham&#39;</span><span class="p">,</span> <span class="s1">&#39;eggs&#39;</span><span class="p">,</span> <span class="mf">42.</span><span class="p">]</span>
+<span class="n">stuff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;spam&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stuff</span><span class="p">)</span>
+
+<span class="n">cubes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">125</span><span class="p">]</span>
+<span class="n">cubes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">cubes</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">6</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="o">**</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="n">letters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">]</span>
+<span class="n">letters</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">]</span>
+<span class="n">letters</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">letters</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+<p>Lists offer <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">methods</a> to manipulate their content:</p>
+<table>
+<thead><tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>list.append(x)</code></td>
+<td>Appends element x at the end of a list</td>
+</tr>
+<tr>
+<td><code>list.extend(l)</code></td>
+<td>Appends list l to another list</td>
+</tr>
+<tr>
+<td><code>list.insert(i,x)</code></td>
+<td>Inserts element x at index i</td>
+</tr>
+<tr>
+<td><code>list.remove(x)</code></td>
+<td>Removes the first element with value x</td>
+</tr>
+<tr>
+<td><code>list.index(x)</code></td>
+<td>Index of the first element with value x</td>
+</tr>
+<tr>
+<td><code>list.count(x)</code></td>
+<td>Counts elements with value x</td>
+</tr>
+<tr>
+<td><code>list.sort(...)</code></td>
+<td>Sorts the list (in place), available arguments change the order (read the docs)</td>
+</tr>
+<tr>
+<td><code>list.reverse()</code></td>
+<td>Reverses the order of elements (in place)</td>
+</tr>
+<tr>
+<td><code>list.pop([i])</code></td>
+<td>Removes and returns the element at index i</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Questions:</strong></p>
+<ul>
+<li>Can list elements be of type <code>List</code>?</li>
+<li>Are tuples <code>mutable</code>?</li>
+<li>Are strings <code>mutable</code>?</li>
+<li>What is the difference between <code>squares + [36, 49]</code> and <code>squares.extend([36, 49])</code>?</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="List-comprehension">List comprehension<a class="anchor-link" href="#List-comprehension"> </a></h3><p>A list comrehension is a shortened way of creating a list:</p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+
+<span class="c1"># multidimensional comprehension</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+     <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">y</span><span class="p">]</span>
+
+<span class="c1"># conditional comprehension</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span>
+     <span class="n">x</span> <span class="o">**</span> <span class="mi">3</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</pre></div>
+<p><a href="https://docs.python.org/3/library/stdtypes.html#typesseq-range"><code>range()</code></a> is used to create sequences of integers.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Reference-or-copy?">Reference or copy?<a class="anchor-link" href="#Reference-or-copy?"> </a></h3><p><strong>Important</strong>: Allocations to <code>immutable</code> types always creates a copy, to <code>mutable</code> types a reference!</p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+<p>In this example, the variable <code>b</code> points towards the same section of the memory as the variable <code>a</code>. If one changes the content of <code>b</code>, <code>a</code> is also changed.</p>
+<p><strong>Question:</strong> Why is</p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">a</span> <span class="ow">is</span> <span class="n">b</span> <span class="o">==</span> <span class="kc">True</span>
+</pre></div>
+<p>but</p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">a</span> <span class="ow">is</span> <span class="n">b</span> <span class="o">==</span> <span class="kc">False</span>
+</pre></div>
+<p>?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Dictionaries">Dictionaries<a class="anchor-link" href="#Dictionaries"> </a></h2><p><a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">Dictionaries</a> are unsorted, <code>mutable</code> collections of objects, which can be indexed with a key. A key can be any object of <code>immutable</code> type, usually strings. Dictionaries can be created with curly brackets or the function <code>dict()</code>:</p>
+<div class="highlight"><pre><span></span><span class="c1"># Create dictionary</span>
+<span class="n">tel</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;jack&#39;</span><span class="p">:</span> <span class="mi">4098</span><span class="p">,</span> <span class="s1">&#39;sape&#39;</span><span class="p">:</span> <span class="mi">4139</span><span class="p">}</span>
+<span class="n">tel</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">jack</span><span class="o">=</span><span class="mi">4098</span><span class="p">,</span> <span class="n">sape</span><span class="o">=</span><span class="mi">4139</span><span class="p">)</span>
+
+<span class="c1"># Append key</span>
+<span class="n">tel</span><span class="p">[</span><span class="s1">&#39;guido&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4127</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tel</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tel</span><span class="p">[</span><span class="s1">&#39;jack&#39;</span><span class="p">])</span>
+
+<span class="c1"># Delete key</span>
+<span class="k">del</span> <span class="n">tel</span><span class="p">[</span><span class="s1">&#39;sape&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tel</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;guido&#39;</span> <span class="ow">in</span> <span class="n">tel</span><span class="p">)</span>
+</pre></div>
+<p>Dictionaries offer methods to work with them:</p>
+<table>
+<thead><tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>d.clear()</code></td>
+<td>Deletes all elements</td>
+</tr>
+<tr>
+<td><code>d.copy()</code></td>
+<td>Returns a copy of the dictionary</td>
+</tr>
+<tr>
+<td><code>d.items()</code></td>
+<td>Returns a list with (key, value) pairs </td>
+</tr>
+<tr>
+<td><code>d.keys()</code></td>
+<td>Returns a list of keys</td>
+</tr>
+<tr>
+<td><code>d.pop(key)</code></td>
+<td>Deletes and returns the value of a key</td>
+</tr>
+<tr>
+<td><code>d.update(...)</code></td>
+<td>Inserts new elements form another dictionary or key-value pair.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Generator">Generator<a class="anchor-link" href="#Generator"> </a></h1><p><strong>WRITE SOMETHING ABOUT GENERATOR</strong></p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Questions:</strong></p>
+<ul>
+<li>Which numbers represent <code>False</code>, which <code>True</code>?</li>
+</ul>
+<p><strong>Questions:</strong></p>
+<ul>
+<li>Does <code>int()</code> round correctly?</li>
+<li>What happens, if a <code>String</code> does not represent a number?</li>
+<li>What is the meaning of <code>int('101', 2)</code>?</li>
+<li>What  decimal number represents <code>4F</code> in hexadecimal system?</li>
+</ul>
+<p><strong>Questions:</strong></p>
+<ul>
+<li>What is the result of <code>55 == 55.0</code>? What does that mean?</li>
+<li>What does the function <code>round()</code>?</li>
+<li>Can <code>float()</code> transform from different numerical systems, as <code>int()</code> does?</li>
+<li>What is the result of <code>0.1 + 0.2</code> and why? The reason is the <a href="https://docs.python.org/3.7/tutorial/floatingpoint.html">representation</a> of floats in the memory.</li>
+</ul>
+<p><strong>Questions:</strong></p>
+<ul>
+<li>What is the difference between <code>5</code> and <code>5.</code>?</li>
+<li>What is the meaning of <code>5+1j</code>?</li>
+<li>What is the meaning of <code>5. == 5</code>?</li>
+<li>What type is the result of<ul>
+<li><code>17 // 3</code></li>
+<li><code>17 // 3.</code></li>
+<li><code>5. == 5</code>?</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+
+
+    </main>
+    
+            </div>
+            <div class="c-textbook__footer" id="textbook_footer">
+              
+<nav class="c-page__nav">
+  
+    
+    
+
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/basics/basics.html">
+      〈 <span class="u-margin-right-tiny"></span> Basics
+    </a>
+  
+
+  
+    
+
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/basics/3_program_flow_and_structure.html">
+      Program Flow <span class="u-margin-right-tiny"></span> 〉
+    </a>
+  
+</nav>
+
+              <footer>
+  <p class="footer">This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The Jupyter Book Community</a></p>
+</footer>
+
+            </div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
