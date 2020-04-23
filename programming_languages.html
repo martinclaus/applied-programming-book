@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://martinclaus.github.io/applied-programming-book/programming_languages.html",
   "headline": "Programming Languages",
-  "datePublished": "2020-04-17T11:47:11+02:00",
-  "dateModified": "2020-04-17T11:47:11+02:00",
+  "datePublished": "2020-04-23T21:08:25+02:00",
+  "dateModified": "2020-04-23T21:08:25+02:00",
   "description": "        Programming Languages    What is a Programming Language A programming language is a formal language to define data structures and algorithms. It is u...",
   "author": {
     "@type": "Person",
@@ -602,6 +602,25 @@ initFunction(initPrint)
             
             
           
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/basics/sequences">
+              <a class="c-sidebar__entry"
+                href="/applied-programming-book/basics/sequences.html"
+              >
+                
+                Sequences
+              </a>
+            </li>
+            
+            
+          
         </ul>
       
 
@@ -790,7 +809,7 @@ The interpreter is a compiled program which is specific for a particular machine
 In a scripting language the instructions typically consists of processing some data using existing programs.
 A scripting language typically also offers some language structures, such as loops and branching, and the possibility of storing data in variables.
 This allows to build customized complex functions or tasks which greatly helps in the daily work.</p>
-<p>The example below is for bash. In the first line, it lists all files matching some pattern (<code>ls *_restart_*.nc</code>), reverses this list (<code>rev</code>), split each filename at the underscores and returns everything except the first column (<code>cut -d_ -f2-</code>), drop all duplicate lines (<code>unique</code>) and reverses the result again (<code>rev</code>).
+<p>The example below is for bash. In the first line, it lists all files matching some pattern (<code>ls *_restart_*.nc</code>), reverses this list (<code>rev</code>), split each filename at the underscores and returns everything except the first column (<code>cut -d_ -f2-</code>), drop all duplicate lines (<code>uniq</code>) and reverses the result again (<code>rev</code>).
 The output of each of the programs is "piped" to the next one using the pipe operator <code>|</code>.
 Then the script iterates over the resulting list and for each entry we combine all files matching some pattern into a single archive file (<code>tar -czvf ${stem}.tar.gz ${stem}_????.nc</code>) and, if that has been successful, we remove these files (<code>rm -v ${stem}_????.nc</code>). These kind of scripts will greatly help if you deal with thousands of files.</p>
 <div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
@@ -888,14 +907,14 @@ When the addition is taking place, the integer number is implicitly converted to
 Programming languages may be classified into following paradigms:</p>
 <ul>
 <li><strong>declarative</strong>: describes what shall be done but not how (e.g. <a href="https://en.wikipedia.org/wiki/SQL">SQL</a>, <a href="https://en.wikipedia.org/wiki/html">HTML</a>)<ul>
-<li><em>functional</em>: the result is formulated as a chain of functions (e.g. <a href="https://en.wikipedia.org/wiki/Haskell_(programming_language">Haskell</a>))</li>
+<li><em>functional</em>: the result is formulated as a chain of functions (e.g. <a href="https://en.wikipedia.org/wiki/Haskell_(programming_language">Haskell</a>)</li>
 <li><em>logical</em>: the result is the answer to a question about a system of rules and facts (e.g. <a href="https://en.wikipedia.org/wiki/Prolog">Prolog</a>)</li>
 <li><em>mathematical</em>: the result is the solution to a optimization problem (e.g. <a href="https://en.wikipedia.org/wiki/AMPL">AMPL</a>)</li>
 </ul>
 </li>
 <li><strong>imperativ</strong>: consists of instructions on how the machine is changing its state<ul>
-<li><em>procedural</em>: groups instructions into procedures or functions (e.g. <a href="https://en.wikipedia.org/wiki/C_(programming_language">C</a>))</li>
-<li><em>object-oriented</em>: groups instructions together with the related data (e.g. <a href="https://en.wikipedia.org/wiki/Java_(programming_language">Java</a>))</li>
+<li><em>procedural</em>: groups instructions into procedures or functions (e.g. <a href="https://en.wikipedia.org/wiki/C_(programming_language">C</a> or <a href="https://en.wikipedia.org/wiki/Fortran">FORTRAN</a>)</li>
+<li><em>object-oriented</em>: groups instructions together with the related data (e.g. <a href="https://en.wikipedia.org/wiki/Java_(programming_language">Java</a>)</li>
 </ul>
 </li>
 </ul>

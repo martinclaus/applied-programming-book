@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Work environments</title>
-  <meta name="description" content="        Work environments    Weblab at CAU Kiel For the module "PherWiss: Angewandtes Programmieren" we will use a web-based interactive computing environmen...">
+  <title>Exercise on sequences</title>
+  <meta name="description" content="        Exercise on sequences    Questions What is the meaning of negative indices?What is the meaning of c1, c2, c3 = "bla"?How does arithmetic work for seq...">
 
-  <link rel="canonical" href="https://martinclaus.github.io/applied-programming-book/work_environments.html">
+  <link rel="canonical" href="https://martinclaus.github.io/applied-programming-book/exercises/sequences_exercise.html">
   <link rel="alternate" type="application/rss+xml" title="Applied Programming for Physics of the Earth System" href="https://martinclaus.github.io/applied-programming-book/feed.xml">
 
-  <meta property="og:url"         content="https://martinclaus.github.io/applied-programming-book/work_environments.html" />
+  <meta property="og:url"         content="https://martinclaus.github.io/applied-programming-book/exercises/sequences_exercise.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Work environments" />
-<meta property="og:description" content="        Work environments    Weblab at CAU Kiel For the module "PherWiss: Angewandtes Programmieren" we will use a web-based interactive computing environmen..." />
+<meta property="og:title"       content="Exercise on sequences" />
+<meta property="og:description" content="        Exercise on sequences    Questions What is the meaning of negative indices?What is the meaning of c1, c2, c3 = "bla"?How does arithmetic work for seq..." />
 <meta property="og:image"       content="https://martinclaus.github.io/applied-programming-book/images/logo/logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -24,11 +24,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "https://martinclaus.github.io/applied-programming-book/work_environments.html",
-  "headline": "Work environments",
+  "mainEntityOfPage": "https://martinclaus.github.io/applied-programming-book/exercises/sequences_exercise.html",
+  "headline": "Exercise on sequences",
   "datePublished": "2020-04-23T21:08:25+02:00",
   "dateModified": "2020-04-23T21:08:25+02:00",
-  "description": "        Work environments    Weblab at CAU Kiel For the module "PherWiss: Angewandtes Programmieren" we will use a web-based interactive computing environmen...",
+  "description": "        Exercise on sequences    Questions What is the meaning of negative indices?What is the meaning of c1, c2, c3 = "bla"?How does arithmetic work for seq...",
   "author": {
     "@type": "Person",
     "name": "Martin Claus"
@@ -428,11 +428,11 @@ initFunction(initPrint)
     },
     codeMirrorConfig: {
     theme: "abcdef",
-    mode: "python"
+    mode: ""
     },
     kernelOptions: {
-    kernelName: "python3",
-    path: ""
+    kernelName: "conda-env-pherwiss_programming-py",
+    path: "content/exercises"
     }
 }
 </script>
@@ -681,10 +681,27 @@ initFunction(initPrint)
 <div class="download-buttons-dropdown">
     <button id="dropdown-button-trigger" class="interact-button"><img src="/applied-programming-book/assets/images/download-solid.svg" alt="Download" /></button>
     <div class="download-buttons">
+        <a href="/applied-programming-book/content/exercises/sequences_exercise.ipynb" download>
+        <button id="interact-button-download" class="interact-button">.ipynb</button>
+        </a>
         
         <a id="interact-button-print"><button id="interact-button-download" class="interact-button">.pdf</button></a>
     </div>
 </div>
+
+
+  
+  
+  
+  
+
+
+
+
+
+<a href="https://weblab.uni-kiel.de/hub/user-redirect/git-pull?repo=https://github.com//martinclaus/applied-programming-book&amp;branch=gh-pages&amp;subPath=content%2Fexercises%2Fsequences_exercise.ipynb&amp;app=lab"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/applied-programming-book/assets/images/logo_jupyterhub.svg" alt="Interact" />Open on Weblab</button></a>
+
+
 
 
 </div>
@@ -704,32 +721,279 @@ initFunction(initPrint)
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
                   <main class="jupyter-page">
-    <div id="page-info"><div id="page-title">Work environments</div>
+    <div id="page-info"><div id="page-title">Exercise on sequences</div>
 </div>
     <div class="jb_cell">
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Weblab-at-CAU-Kiel">Weblab at CAU Kiel<a class="anchor-link" href="#Weblab-at-CAU-Kiel"> </a></h1><p>For the module "PherWiss: Angewandtes Programmieren" we will use a web-based interactive computing environment to do the exercises.
-The URL of the platform is <a href="https://weblab.uni-kiel.de">https://weblab.uni-kiel.de</a> and it is based on <a href="https://jupyterlab.readthedocs.io/en/stable/">Jupyter Lab</a>.
-The system is reachable from everywhere in the world, so no VPN connection to the universities network is necessary.
-I recommend to take a look at the <a href="https://jupyterlab.readthedocs.io/en/stable/user/interface.html">Jupyter Lab User Guide</a> to make yourself comfortable with the user interface.</p>
-<p>Access to the system is restricted to registered users.
-The user accounts are created and assigned during the first exercise class.
-The password for the accounts is set by you and it is the password that you enter when you first login.
-Please remember your password carefully, since password reset is not easily possible.</p>
-<p>Please note that your account and all of your data will be deleted after the end of the second examination period of the summer term.
-Make a backup of all your data on your local machine by <a href="https://jupyterlab.readthedocs.io/en/stable/user/files.html#uploading-and-downloading">downloading</a> all relevant files.</p>
-<h1 id="Python-on-your-machine">Python on your machine<a class="anchor-link" href="#Python-on-your-machine"> </a></h1><p>To install a similar environment on your own computer, I recommend to install the <a href="https://www.anaconda.com/">Anaconda</a> or <a href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> distribution.
-Anaconda is a Python distribution for scientific data analysis.
-It comes with most of the commonly used packages already installed.</p>
-<p>Further packages can be installed from the internet using the <a href="https://docs.conda.io/projects/conda/en/latest/">conda package manager</a>.
-For example, to install Jupyter Lab, you can run</p>
-<div class="highlight"><pre><span></span>conda install jupyterlab
+<h2 id="Questions">Questions<a class="anchor-link" href="#Questions"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What is the meaning of negative indices?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What is the meaning of <code>c1, c2, c3 = "bla"</code>?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>How does arithmetic work for sequences?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What is the meaning of <code>'y' in word</code> for some string <code>word</code>?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What is the meaning of <code>step</code> in a slice?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What is the result of <code>s[:i] + s[i:]</code> for some sequence <code>s</code>?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What is the length of <code>s[n:m]</code>?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Is <code>(1) == (1,)</code>?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When are tuples equal? When are they identical?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Can lists be an element of a list?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Which of the following types are <code>mutable</code> and which <code>immutable</code>: <code>float</code>, <code>string</code>, <code>list</code>, <code>tuple</code>, <code>dictionary</code>, <code>complex</code>, <code>integer</code>?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Which of the following expressions are tuples and which are lists:</p>
+<ul>
+<li><code>(1, 2, 3)</code></li>
+<li><code>[1, 2, 3]</code></li>
+<li><code>[(1, 3), 'a', 45]</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What is the difference between <code>squares + [36, 49]</code> and <code>squares.extend([36, 49])</code>?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Why is</p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">a</span> <span class="ow">is</span> <span class="n">b</span> <span class="o">==</span> <span class="kc">True</span>
 </pre></div>
-<p>When you gain more experience with managing packages, you should make yourself comfortable with the idea of <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">virtual environments</a>.
-These allow to specify multiple environments which may differ in terms of installed packages or package versions.
-By installing the package <a href="https://github.com/Anaconda-Platform/nb_conda_kernels">nb_conda_kernels</a> into the environment in which Jupyter Lab is installed, all virtual environments which have a Jupyter kernel package (e.g. <a href="https://github.com/ipython/ipykernel">ipykernel</a>) installed are available to run a Jupyter notebook.</p>
+<p>but</p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">a</span> <span class="ow">is</span> <span class="n">b</span> <span class="o">==</span> <span class="kc">False</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Coding-exercises">Coding exercises<a class="anchor-link" href="#Coding-exercises"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A. Assign the string <code>'Python'</code> to the variable <code>word</code> and then extract the first 2 characters.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>B. From the previously created variable <code>word</code>, print</p>
+<ol>
+<li>the last two characters</li>
+<li>every second character</li>
+<li>all characters, but in reversed order.</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>C. Try to build the string <code>"Gooooooooooooooooal"</code> out of the string <code>"Goal"</code></p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>D. Create a list that contains three book titles</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>E. Create a list that consists of the squares of all numbers between 0 and 5. Then manipulate this list by doing the following</p>
+<ol>
+<li>remove the last element of the list</li>
+<li>set the second element to <code>2</code></li>
+<li>add three additional elements of your choice to the end of the list</li>
+<li>add one element to the beginning of the list</li>
+<li>print the number of elements that have a value of <code>0</code></li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>F. Create a dictionary and fill it with content of your choice. Try out the methods available for dictionaries.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>G. Assign the string <code>"Foo"</code> to variable <code>s</code>. Now try to change the first character of <code>s</code> to <code>P</code>. Explain the error message you get.</p>
 
 </div>
 </div>
@@ -749,8 +1013,8 @@ By installing the package <a href="https://github.com/Anaconda-Platform/nb_conda
     
     
 
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/applied-programming-book/intro.html">
-      〈 <span class="u-margin-right-tiny"></span> Home
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/applied-programming-book/basics/sequences.html">
+      〈 <span class="u-margin-right-tiny"></span> Sequences
     </a>
   
 
@@ -758,8 +1022,8 @@ By installing the package <a href="https://github.com/Anaconda-Platform/nb_conda
     
 
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/applied-programming-book/programming_languages.html">
-      Programming Languages <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="">
+       <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
