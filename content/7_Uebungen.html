@@ -1,0 +1,347 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Praktische Einheit &#8212; Applied Programming for Physics of the Earth System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0-alpha.0/dist/embed.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="canonical" href="https://martinclaus.github.io/applied-programming-book/content/7_Uebungen.html" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<!-- Put requirejs at the end so it's always after bootstrap -->
+<!-- TODO: remove this once https://github.com/pandas-dev/pydata-sphinx-theme/pull/149 is merged -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://martinclaus.github.io/applied-programming-book/content/7_Uebungen.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Praktische Einheit" />
+<meta property="og:description" content="Praktische Einheit  Die folgenden Aufgaben sind zur praktischen Übung gedacht. Sie sind in drei Schwierigkeitsgrade gruppiert: Basic, Intermediate, Advanced. Sc" />
+<meta property="og:image"       content="https://martinclaus.github.io/applied-programming-book/_static/logo.png" />
+
+<meta name="twitter:card" content="summary">
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Applied Programming for Physics of the Earth System</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="work_environments.html">Interactive Work Environment</a>
+  </li>
+  <li class="">
+    <a href="programming_languages.html">What is a Programming Language</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Basics</p>
+</li>
+  <li class="">
+    <a href="basics/basics.html">Basics</a>
+  </li>
+  <li class="">
+    <a href="basics/primitive_data_types.html">Primitive Data Types</a>
+  </li>
+  <li class="">
+    <a href="basics/sequences.html">Sequences</a>
+  </li>
+  <li class="">
+    <a href="basics/program_flow_and_structure.html">Program Flow and Structure</a>
+  </li>
+</ul>
+</nav>
+<p class="navbar_footer">Powered by <a href="https://jupyterbook.org">Jupyter Book</a></p>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/content/7_Uebungen.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/martinclaus/applied-programming-book/master?urlpath=lab/tree/content/7_Uebungen.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                <a class="jupyterhub-button" href="https://weblab.uni-kiel.de/hub/user-redirect/git-pull?repo=https://github.com/martinclaus/applied-programming-book&urlpath=lab/tree/applied-programming-book/content/7_Uebungen.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip" data-placement="left"><img class="jupyterhub-button-logo" src="../_static/images/logo_jupyterhub.svg" alt="Interact on JupyterHub">JupyterHub</button></a>
+                
+                
+            </div>
+        </div>
+        
+
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 col-xxl-7 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="praktische-einheit">
+<h1>Praktische Einheit<a class="headerlink" href="#praktische-einheit" title="Permalink to this headline">¶</a></h1>
+<p>Die folgenden Aufgaben sind zur praktischen Übung gedacht. Sie sind in drei Schwierigkeitsgrade gruppiert: <strong>Basic, Intermediate, Advanced</strong>. Schätze dein Können selber ein und beginne mit Aufgaben, die dich ausreichend fordern. Falls du mal nicht weiter weist, versuche:</p>
+<ol class="simple">
+<li><p>in den vorherigen Einheiten nach anwendbaren Beispielen zu suchen und diese umzuschreiben</p></li>
+<li><p>die Dokumentation der Funktionen und Klassen zu lesen</p></li>
+<li><p>nach Lösungen im Internet zu suchen</p></li>
+<li><p>Komilitonen zu fragen</p></li>
+<li><p>den Tutor zu fragen</p></li>
+</ol>
+<p>Das Lösen der Aufgaben ist <strong>nicht bestandteil der Prüfungsleistung</strong>. Also kein Grund zur Panik oder zum Abschreiben. Ihr bekommt Musterlösungen zu Beginn der nächsten Veranstaltung.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">myturtle</span> <span class="kn">import</span> <span class="n">Turtle</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="level-basic">
+<h1>Level: Basic<a class="headerlink" href="#level-basic" title="Permalink to this headline">¶</a></h1>
+<p><strong>Aufgabe 1:</strong> Zeichen eine einzelne Treppenstufe mit Hilfe von <code class="docutils literal notranslate"><span class="pre">Turtle</span></code>.</p>
+<p><strong>Aufgabe 2:</strong> Verpacke das Zeichnen einer Treppenstufe in einer Funktion. Dabei soll das erste Argument das <code class="docutils literal notranslate"><span class="pre">Turtle</span></code> Objekt sein. Zwei weitere optionale Argumente sollen die Breite und die Höhe der Treppenstufe sein, beides mit 1 als Standardwert.</p>
+<p>Zeichne dann eine Treppe mit drei Stufen.</p>
+<p><strong>Aufgabe 3:</strong> Schreibe nun eine Funktion, welche eine Treppe (mehrere Stufen hintereinander) zeichnet. Die Funktion soll in der Lage sein, beliebig lange Treppen zu zeichnen. Greife dabei auf Code zurück, den du bereits programmiert hast.</p>
+<p><strong>Aufgabe 4:</strong> Modifiziere deinen Code so, dass du ein Treppenhaus zeichnen kannst, also mehrere gegenläufige Treppen hintereinander. Schreibe eine weitere Funktion, welche ein Haus zeichnet. Zeichne ein Haus mit einem dreistöckigen Treppenhaus.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="level-intermediate">
+<h1>Level: Intermediate<a class="headerlink" href="#level-intermediate" title="Permalink to this headline">¶</a></h1>
+<p><strong>Aufgabe 1:</strong> Schreibe eine Funktion, welche den Betrag der Gravitationbeschleunigung durch einen Körper der Masse <code class="docutils literal notranslate"><span class="pre">M</span></code> berechnet. Die Gravitationsbeschleunigung ist gegeben durch:</p>
+<div class="math notranslate nohighlight">
+\[ a = \frac{\Gamma M}{r^2} \]</div>
+<p>mit <span class="math notranslate nohighlight">\(\Gamma = 6,672 \cdot 10^{-11} m^3 kg^{-1} s^{-2}\)</span> und <span class="math notranslate nohighlight">\(r\)</span> ist der Abstand der beiden Massenpunkte.</p>
+<p><strong>Aufgabe 2:</strong> Schreibe die Funktion so um, dass sie die Gravitationsbeschleunigung</p>
+<div class="math notranslate nohighlight">
+\[ \vec{a} = \frac{\Gamma M}{\Vert\vec{r}\Vert^2}\frac{\vec{r}}{\Vert\vec{r}\Vert}\]</div>
+<p>zurück gibt. Verwende dabei Numpy Funktionen und schreibe die Funktion so, dass sie sowohl in 2D als auch in 3D funktioniert.</p>
+<p><strong>Aufgabe 3:</strong> Schreibe ein Programm, dass den Flug einer Kanonenkugel simuliert. Du kannst (musst aber nicht) eine konstante Gravitationsbeschleunigung von <span class="math notranslate nohighlight">\(g = 9.80665 ms^{-2}\)</span> annehmen.</p>
+<p>Parameter für die Berechnung sind:</p>
+<ul class="simple">
+<li><p>Startgeschwindigkeit und Winkel. Am besten beides in einen Vektor zusammen fassen.</p></li>
+<li><p>Zeitinkrement <span class="math notranslate nohighlight">\(dt\)</span> der Simulation. Benutze <span class="math notranslate nohighlight">\(dt = 0.1s\)</span></p></li>
+</ul>
+<p>Berechne die Änderung der Geschwindigkeit zu jedem Zeitinkrement <span class="math notranslate nohighlight">\(n\)</span>, mit <span class="math notranslate nohighlight">\(t = n\cdot dt\)</span>, näherungsweise durch</p>
+<div class="math notranslate nohighlight">
+\[ \vec{v}_{n+1} = \vec{v}_n + dt\cdot\vec{g}\]</div>
+<p>Dann ist die Änderung der Position gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[ d\vec{r}_{n+1} = dt\cdot\vec{v}_{n+1}\]</div>
+<p>Verwende die Methode <code class="docutils literal notranslate"><span class="pre">move</span></code> von <code class="docutils literal notranslate"><span class="pre">Turtle</span></code> um die Position zu verändern. Die aktuelle Position erhälst du über das Attribut <code class="docutils literal notranslate"><span class="pre">position</span></code>.</p>
+<p>Beginne zuerst mit einem <code class="docutils literal notranslate"><span class="pre">for</span></code>-loop mit 20 Iterationsschritten. Wenn du das Gefühl hast, dass das Ergebnis stimmt, schreibe das Programm um, so das es abbricht, wenn die Kanonenkugel den Boden berührt.</p>
+<p><strong>Aufgabe 4:</strong> Verpacke das Programm der vorherigen Aufgabe in eine Funktion mit den Argumenten</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Turtle</span></code> Objekt</p></li>
+<li><p>Startgeschwindigkeit</p></li>
+<li><p>Abschusswinkel</p></li>
+<li><p>Zeitinkrement (Standardwert 0.1s) (Bestimmt die Genauigkeit der Distanzmessung)</p></li>
+</ul>
+<p>Schreibe ein Programm, dass die Schussweite in Abhängigkeit vom Abschusswinkel und der Abschussgeschwindigkeit bestimmt. Verwende dabei Abschusswinkel zwischen 10° und 70° in 1° Schritten und Abschussgeschwindigkeiten zwischen 50 <span class="math notranslate nohighlight">\(ms^{-1}\)</span> und 200 <span class="math notranslate nohighlight">\(ms^{-1}\)</span> in 10 <span class="math notranslate nohighlight">\(ms^{1}\)</span> Schritten. Organisiere das Ergebnis in einem 2D Array.</p>
+<p>Die beiden folgenden Zellen enthalten Code, um das Ergebis darzustellen.</p>
+<p>Tip: Schalte den graphischen Output von <code class="docutils literal notranslate"><span class="pre">Turtle</span></code> mit der Methode <code class="docutils literal notranslate"><span class="pre">set_draw</span></code> aus.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># speed: Vektor mit Geschwindigkeiten</span>
+<span class="c1"># angle: Vektor mit Winkeln</span>
+<span class="c1"># distance: 2D Array mit Schussweiten (shape: n_angle x n_speed) </span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">speed</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">distance</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;angle [°]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;speed [m/s]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Shooting distance [m]&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">distance</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;shooting distance [m]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;angle [°]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Speed </span><span class="si">{}</span><span class="s1"> [m/s]&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">speed</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]));</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="level-advanced">
+<h1>Level: Advanced<a class="headerlink" href="#level-advanced" title="Permalink to this headline">¶</a></h1>
+<p><strong>Aufgabe 1:</strong> Erweitere die Klasse <code class="docutils literal notranslate"><span class="pre">Turtle</span></code> um die Funktionalität der <em>Basic level</em> Aufgaben. D.h., Objekte der Klasse sollen Häuser und Treppenhäuser zeichnen können.</p>
+<p>Füge zusätzlich eine Methode hinzu, die Häuser mit Treppenhäusern zeichnet. Argument soll die Anzahl der Stockwerke sein.</p>
+<p>Zeichne eine Stadt (~ 5-10 mehrstöckige Häuser unterschiedlicher Höhe).</p>
+<p><strong>Aufgabe 2:</strong>
+Erweitere die Klasse <code class="docutils literal notranslate"><span class="pre">Turtle</span></code>:</p>
+<ul class="simple">
+<li><p>Ergänze die Attribute Geschwindigkeit (ndarray) und Masse (skalar)</p></li>
+<li><p>Ändere zusätzlich den Typen des Attributs <code class="docutils literal notranslate"><span class="pre">position</span></code> zu einem ndarray</p></li>
+<li><p>Schreibe eine Methode, welche die Schwerebeschleunigung des Objekts durch ein anderes Objekt des gleichen Typs berechnet (sie <em>Intermediate level</em> Aufgabe 2).</p></li>
+<li><p>Schreibe eine Methode, welche die Schwerebeschleunigungen durch eine Liste von Objekten aufsummiert.</p></li>
+<li><p>Schreibe eine Methode um die Geschwindigkeit zum nächsten Zeitschritt zu berechnen (sie <em>Intemediate level</em> Aufgabe 3)</p></li>
+<li><p>Schreibe eine Methode um die Position zum nächsten Zeitschritt zu berechnen und zu verändern.</p></li>
+</ul>
+<p>Betrachte folgende drei Objekte:</p>
+<ul class="simple">
+<li><p>sun:</p>
+<ul>
+<li><p>Position: (0, 0)</p></li>
+<li><p>Geschwindigkeit: (0, 0)</p></li>
+<li><p>Masse: 1.989e30</p></li>
+</ul>
+</li>
+<li><p>earth:</p>
+<ul>
+<li><p>Position relativ zu sun: (0, 1.496e11)</p></li>
+<li><p>Geschwindigkeit relativ zu sun: (2.9780e4, 0)</p></li>
+<li><p>Masse: 5.9722e24</p></li>
+</ul>
+</li>
+<li><p>moon:</p>
+<ul>
+<li><p>Position relativ zu earth: (0, 3.844e8)</p></li>
+<li><p>Geschwindigkeit relativ zu earth: (1.023e3, 0)</p></li>
+<li><p>Masse: 7.349e22</p></li>
+</ul>
+</li>
+</ul>
+<p>Simuliere zuerst nur den Umlauf des Mondes um die Erde in einem geozentrischen Koordinatensystem. Du kannst die Erde als fix annehmen. Verwende ein Zeitinkrement von <span class="math notranslate nohighlight">\(dt = 5000s\)</span> und simuliere 30 Tage.</p>
+<p>Simuliere nun den Umlauf des Mondes um die Erde, wenn diese sich auch um die Sonne bewegt.</p>
+<p>Du kannst auch versuchen, einen <a class="reference external" href="https://en.wikipedia.org/wiki/Gravity_assist">“gravitational slingshot”</a> zu simulieren.</p>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020,.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+    </p>
+  </div>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
