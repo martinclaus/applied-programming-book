@@ -32,6 +32,8 @@
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exercise on functions" href="../exercises/functions_exercise.html" />
+    <link rel="prev" title="Exercises" href="../exercises/program_flow_and_structure_exercise.html" />
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,7 +50,7 @@
 <meta property="og:url"         content="https://martinclaus.github.io/applied-programming-book/content/basics/functions.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Functions" />
-<meta property="og:description" content="Functions  In one of the previous examples we saw, that data, which is used at different parts of the code, should be represented by a reference to a defined va" />
+<meta property="og:description" content="Functions  In one of the previous examples we have seen that data, which is used at different parts of the code, should be represented by a named variable. The " />
 <meta property="og:image"       content="https://martinclaus.github.io/applied-programming-book/_static/logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -102,6 +104,14 @@
   </li>
   <li class="">
     <a href="program_flow_and_structure.html">Program Flow and Structure</a>
+  </li>
+  <li class="active">
+    <a href="">Functions</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="../exercises/functions_exercise.html">Exercise on functions</a>
+    </li>
+  </ul>
   </li>
 </ul>
 </nav>
@@ -177,7 +187,7 @@
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#arguments" class="nav-link">Arguments</a><ul class="nav section-nav flex-column">
+            <a href="#arguments-and-parameters" class="nav-link">Arguments and Parameters</a><ul class="nav section-nav flex-column">
                 
         <li class="nav-item toc-entry toc-h3">
             <a href="#positional-arguments" class="nav-link">Positional arguments</a>
@@ -192,7 +202,7 @@
         </li>
     
         <li class="nav-item toc-entry toc-h3">
-            <a href="#variable-number-of-arguments" class="nav-link">Variable number of arguments</a>
+            <a href="#variable-number-of-parameters" class="nav-link">Variable number of parameters</a>
         </li>
     
             </ul>
@@ -200,10 +210,6 @@
     
         <li class="nav-item toc-entry toc-h2">
             <a href="#scope" class="nav-link">Scope</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#exercises" class="nav-link">Exercises</a>
         </li>
     
     </ul>
@@ -217,7 +223,7 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -228,33 +234,57 @@
 </div>
 <div class="section" id="functions">
 <h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
-<p>In one of the previous examples we saw, that data, which is used at different parts of the code, should be represented by a reference to a defined variable. The same holds for code structures, which repeatedly process the same or similar data. This can be achieved by defining <em>functions</em>. This prevents redudancy in the code.</p>
+<p>In one of the previous examples we have seen that data, which is used at different parts of the code, should be represented by a named variable. The same holds for code structures which repeatedly process the same or similar data. This can be achieved by defining <em>functions</em>. It prevents redundancy in the code and makes the code more readable and maintainable.</p>
 <div class="section" id="defining-functions">
 <h2>Defining functions<a class="headerlink" href="#defining-functions" title="Permalink to this headline">¶</a></h2>
-<p>Every definition of a function starts with the <em>function signiture</em>. This is initiated with the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code>, followed by the name of the function and the definition of possible arguments in round brackets. Subsequent follows the indented <em>body</em> of the function, consisting of at least one command.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+<p>Every definition of a function starts with the <em>function signiture</em>. The signature starts with the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code>, followed by the name of the function and the definition of possible arguments in round brackets, and ends with a colon. The signature is followed by the indented <em>body</em> of the function, consisting of at least one command.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>After a function is defined, it can be called. It is important to use the round brackets, even if the function does not need any argument.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hello_word</span><span class="p">()</span>
+</div>
+</div>
+<p>After a function is defined, it can be <em>called</em>. It is important to use the round brackets, even if the function does not need any argument.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hello_world</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Hello world
+</pre></div>
+</div>
+</div>
 </div>
 <p>Functions always return a value. This value can be defined with the keyword <code class="docutils literal notranslate"><span class="pre">return</span></code>. If no return value is defined, the function returns <a class="reference external" href="https://docs.python.org/3.7/library/constants.html#None"><code class="docutils literal notranslate"><span class="pre">None</span></code></a>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello_world_string</span><span class="p">():</span>
-    <span class="k">return</span> <span class="s1">&#39;hello_world&#39;</span>
+<p>The following function does not print the string “Hello world” but it will return it when called.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello_world_string</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s1">&#39;Hello world&#39;</span>
 </pre></div>
 </div>
+</div>
+</div>
 <p>It is also possible to return multiple objects by writing them as tuples:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">give_words</span><span class="p">():</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">give_words</span><span class="p">():</span>
     <span class="k">return</span> <span class="s2">&quot;ham&quot;</span><span class="p">,</span> <span class="s2">&quot;spam&quot;</span><span class="p">,</span> <span class="s2">&quot;eggs&quot;</span>
 
 <span class="n">words</span> <span class="o">=</span> <span class="n">give_words</span><span class="p">()</span>       <span class="c1"># This is a tuple with three elements</span>
-<span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">w3</span> <span class="o">=</span> <span class="n">give_words</span><span class="p">()</span>  <span class="c1"># Directly unpackes the tuple in its three elements</span>
+<span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">w3</span> <span class="o">=</span> <span class="n">give_words</span><span class="p">()</span>  <span class="c1"># Directly unpackes the tuple</span>
 </pre></div>
 </div>
-<p>To document (so to describe in words, what the function does and how one uses it) a function one writes a so-called <em>docstring</em>. This is a string in the beginning of the body. Usually a multiline string is used, framed by three quotation marks <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code> on each side. This string is returned by the <a class="reference external" href="https://docs.python.org/3/library/functions.html#help"><code class="docutils literal notranslate"><span class="pre">help()</span></code></a> function.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>def hello_world_string():
+</div>
+</div>
+<p>An important task in programming is the documentation of your code, that is to describe in words, what it does and how one uses it. In Python, this is done by writing <em>docstrings</em> into the code. For functions, the docstring is a string at the beginning of the function body. Usually it is a multiline string , enclosed by three quotation marks <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>. This string is returned by the <a class="reference external" href="https://docs.python.org/3/library/functions.html#help"><code class="docutils literal notranslate"><span class="pre">help()</span></code></a> function.</p>
+<div class="cell tag_hide_output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>def hello_world_string():
     &quot;&quot;&quot;Returns the string &quot;Hello World&quot;.&quot;&quot;&quot;
     s = &quot;Hello World&quot;
     return s
@@ -264,50 +294,130 @@ help(hello_world_string)
 hello_world_string?
 </pre></div>
 </div>
-<p>When a function is defined, it is an object as any other variable. Thus it can be allocated to another variable or passed to other functions as an argument.</p>
-<p><strong>Questions:</strong></p>
-<ul class="simple">
-<li><p>Which value does <code class="docutils literal notranslate"><span class="pre">hello_world</span></code> return?</p></li>
-<li><p>what is the difference between <code class="docutils literal notranslate"><span class="pre">hello_word</span></code> and <code class="docutils literal notranslate"><span class="pre">hello_world_string</span></code>?</p></li>
-<li><p>What is the type of <code class="docutils literal notranslate"><span class="pre">hello_world_string</span></code> and <code class="docutils literal notranslate"><span class="pre">hello_world_string()</span></code>?</p></li>
-</ul>
 </div>
-<div class="section" id="arguments">
-<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
-<p>Functions are used to execute a once defined sequence of tasks with a set of data, which can be different from execution to execution. This data is passed to the function via arguments. The arguments are given in the round brackets in the function signature. For python, arguments do not have a set type, it can change during the runtime of the program. The language is dynamically typecasted.</p>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Help on function hello_world_string in module __main__:
+
+hello_world_string()
+    Returns the string &quot;Hello World&quot;.
+
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[0;31mSignature:[0m [0mhello_world_string[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mDocstring:[0m Returns the string &quot;Hello World&quot;.
+[0;31mFile:[0m      ~/Documents/applied-programming-book/content/basics/&lt;ipython-input-13-44357a835bb6&gt;
+[0;31mType:[0m      function
+</pre></div>
+</div>
+</div>
+</div>
+<p>When a function is defined, it is an object as any other variable. Thus it can be allocated to another variable or passed to other functions as an argument.</p>
+</div>
+<div class="section" id="arguments-and-parameters">
+<h2>Arguments and Parameters<a class="headerlink" href="#arguments-and-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Functions are used to execute a once defined sequence of tasks on some set of data that can be different from execution to execution. This data is <em>passed</em> to the function via arguments when calling the function. The names of the arguments that are used within the function body are called <em>parameters</em> and are defined in the round brackets within the function signature. For Python, arguments do not have a defined type, it can change during the runtime of the program. Hence, the language is dynamically typed.</p>
+<p>When calling a function in Python, arguments can either be passed as <em>positional arguments</em> or <em>keyword arguments</em>.</p>
 <div class="section" id="positional-arguments">
 <h3>Positional arguments<a class="headerlink" href="#positional-arguments" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<p>Positional arguments are used by simply giving the value of the argument when calling a function. The example below uses positional arguments when calling the function <code class="docutils literal notranslate"><span class="pre">greet</span></code>. Note that the type of the arguments differ in both calls to the function.</p>
+<div class="cell tag_hide_output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
 
 <span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Martin&quot;</span><span class="p">)</span>
 <span class="n">greet</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Multiple arguments are separated by commas:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">.</span><span class="mi">6</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Hello Martin
+Hello 4
 </pre></div>
 </div>
+</div>
+</div>
+<p>A function can also take multiple arguments. The arguments and the corresponding parameters are given as a comma separated list in the function call and its’ signature, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">div</span><span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">numerator</span> <span class="o">/</span> <span class="n">denominator</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0.7142857142857143
+1.4
+</pre></div>
+</div>
+</div>
+</div>
+<p>The example above illustrates why it is called positional arguments. It is the position of the values in the function call that determines which variables they are assigned to in the function body.</p>
 </div>
 <div class="section" id="keyword-arguments">
 <h3>Keyword arguments<a class="headerlink" href="#keyword-arguments" title="Permalink to this headline">¶</a></h3>
-<p>Arguments can also be passed as <code class="docutils literal notranslate"><span class="pre">key=value</span></code> pair (<em>keyword argument</em>). This enhances the readability of the code and the order of arguments can be neglected. All arguments, that are not passed with a keyword, are called <em>positional arguments</em>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">div</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+<p>Arguments can also be passed as <code class="docutils literal notranslate"><span class="pre">key=value</span></code> pairs which enhances the readability of the code. Using keyword arguments allows to neglect the order of arguments as given by the function signature.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">div</span><span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">numerator</span> <span class="o">/</span> <span class="n">denominator</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">6.</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="mf">6.</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="n">numerator</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">denominator</span><span class="o">=</span><span class="mf">6.</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="n">denominator</span><span class="o">=</span><span class="mf">6.</span><span class="p">,</span> <span class="n">numerator</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0.5
+0.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also mix the use of positional and keyword arguments. However, we then have to put the positional arguments first followed by the keyword arguments. In any case, the association between the arguments and parameters must be unambiguous.</p>
+<div class="cell tag_hide_output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">denominator</span><span class="o">=</span><span class="mi">6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="n">nominator</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>  <span class="c1">## this is a syntax error</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-28-50a9eacaf465&gt;&quot;</span><span class="gt">, line </span><span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="n">nominator</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>  <span class="c1">## this is a syntax error</span>
+                           <span class="o">^</span>
+<span class="ne">SyntaxError</span>: positional argument follows keyword argument
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide_output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">nominator</span><span class="o">=</span><span class="mi">6</span><span class="p">))</span>  <span class="c1"># this is a type error</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">27</span><span class="o">-</span><span class="mi">7691</span><span class="n">ef50def9</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">nominator</span><span class="o">=</span><span class="mi">6</span><span class="p">))</span>  <span class="c1"># this is a type error</span>
+
+<span class="ne">TypeError</span>: div() got an unexpected keyword argument &#39;nominator&#39;
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="default-values">
 <h3>Default values<a class="headerlink" href="#default-values" title="Permalink to this headline">¶</a></h3>
-<p>Often one would like to define a default value for a certain argument. This can be done with a allocation in the function signature.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;How do you do?&quot;</span><span class="p">):</span>
+<p>Often one would like to define a default value for a certain parameter. This can be done with an assignment in the function signature. When calling the function, we may then omit the argument that has a default value defined.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;How do you do?&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function greets to the person with the provided message.</span>
 
@@ -320,8 +430,39 @@ hello_world_string?
 <span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Bruce&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Good morning!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Important:</strong> The evaluation of the expression in the allocation happens, when the compiler reads the function signature.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Hello Bruce. Good morning!
+Hello Bruce. How do you do?
+Hello Bruce. Good morning!
+</pre></div>
+</div>
+</div>
+</div>
+<p>To have an unambiguous map between arguments and parameters all parameters having a default value must be at the end of the parameter list in the function signature.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">div</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-32-83f329bb83cb&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="k">def</span> <span class="nf">div</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+            <span class="o">^</span>
+<span class="ne">SyntaxError</span>: non-default argument follows default argument
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-info">
+<p class="admonition-title">Note</p>
+<p>The evaluation of the assignment expression in the function signature happens only once when the interpreter reads the function signature.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="k">def</span> <span class="nf">sum_5</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="o">=</span><span class="n">a</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span>
 
@@ -330,8 +471,21 @@ hello_world_string?
 <span class="nb">print</span><span class="p">(</span><span class="n">sum_5</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
-<p><strong>Important:</strong> When a <code class="docutils literal notranslate"><span class="pre">mutable</span></code> data type is used as default value, simply the reference is set. So the default value can change later, what is commonly seen as <strong>undesired</strong>! Thus <strong>never use a <code class="docutils literal notranslate"><span class="pre">mutable</span></code> data type as a default!</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>6
+6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-warning">
+<p class="admonition-title">Warning</p>
+<p>When a <code class="docutils literal notranslate"><span class="pre">mutable</span></code> data type is used as the default value a reference is set to it. Hence, the default value can change during runtime which is commonly considered <strong>undesired behavior</strong>! Thus <strong>never use a <code class="docutils literal notranslate"><span class="pre">mutable</span></code> data type as a default!</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="k">def</span> <span class="nf">append_element</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="n">a</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">l</span> <span class="o">+</span> <span class="p">[</span><span class="n">e</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">append_element</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
@@ -342,10 +496,22 @@ hello_world_string?
 </pre></div>
 </div>
 </div>
-<div class="section" id="variable-number-of-arguments">
-<h3>Variable number of arguments<a class="headerlink" href="#variable-number-of-arguments" title="Permalink to this headline">¶</a></h3>
-<p>It is possible to define a function, which accepts a variable number of arguments. Therefore a <code class="docutils literal notranslate"><span class="pre">*</span></code> is used for positional arguments and a <code class="docutils literal notranslate"><span class="pre">**</span></code> is used for keyword arguments:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func_pos_args</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[1, 5]
+[1, 6]
+[1]
+[6, 5]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="variable-number-of-parameters">
+<h3>Variable number of parameters<a class="headerlink" href="#variable-number-of-parameters" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to define a function which accepts a variable number of arguments. To have access to these variable parameters, there is the <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">**</span></code> notation in the function signature. <code class="docutils literal notranslate"><span class="pre">*</span></code> is used for positional arguments and a <code class="docutils literal notranslate"><span class="pre">**</span></code> is used for keyword arguments and these are always at the end of the parameter list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func_pos_args</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
     
 <span class="k">def</span> <span class="nf">func_kw_args</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -359,8 +525,13 @@ hello_world_string?
     <span class="nb">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Analogously a sequence or a dictionary of arguments can be used to call a function:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+</div>
+</div>
+<p>In the examples above, <code class="docutils literal notranslate"><span class="pre">args</span></code> is a tuple of all additional positional arguments that have been passed to the function. <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> is a dictionary mapping the keys to the values of all additional keyword arguments given in the function call. Additional here means that these arguments do not match a parameter that is explicitly defined in the function signature.</p>
+<p>Using an analogous notation, a sequence or a dictionary of arguments can be passed to a function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 
 <span class="n">numbers</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
@@ -370,45 +541,50 @@ hello_world_string?
 <span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="o">**</span><span class="n">numbers_dict</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>This allows the definition of function wrappers. The following function  <code class="docutils literal notranslate"><span class="pre">wrapper</span></code> accepts every function as first argument and executes it after the <code class="docutils literal notranslate"><span class="pre">print</span></code> command:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Function </span><span class="si">{}</span><span class="s2"> executed with Arguments </span><span class="si">{}</span><span class="s2"> and </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">))</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>9
+9
+</pre></div>
+</div>
+</div>
+</div>
+<p>This allows, for example, the definition of <em>function wrappers</em>. The following function <code class="docutils literal notranslate"><span class="pre">wrapper</span></code> accepts any function as first argument and calls it after the <code class="docutils literal notranslate"><span class="pre">print</span></code> command with the given arguments:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Function </span><span class="si">{}</span><span class="s2"> executed with Arguments </span><span class="si">{}</span><span class="s2"> and </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
     <span class="n">return_value</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">return_value</span>
 
 <span class="n">wrapper</span><span class="p">(</span><span class="nb">sum</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Exercises:</strong></p>
-<ul class="simple">
-<li><p>Write a function with three arguments. Execute this function with different combinations of keyword and positional arguments. What is allowed, what is not? What rules can be derived from that result?</p></li>
-<li><p>Write a function with two arguments. One should have a default value. At which position does it need to be placed in the signature?</p></li>
-<li><p>Describe the behaviour of the following program. Change the code such that the function always returns the same value.</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">append_element</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
-    <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">l</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">append_element</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">append_element</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">]))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">append_element</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">append_element</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Function sum executed with Arguments (2,) and {&#39;b&#39;: 3}
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>Of what type are the parameter <code class="docutils literal notranslate"><span class="pre">args</span></code> and <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> in the example for variable numbers of arguments?</p></li>
-<li><p>Read <a class="reference external" href="https://www.python.org/dev/peps/pep-0257/">PEP257</a> and write a proper <code class="docutils literal notranslate"><span class="pre">docstring</span></code> for the function <code class="docutils literal notranslate"><span class="pre">append_element</span></code> from above.</p></li>
-</ul>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="scope">
 <h2>Scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h2>
-<p>The <em>scope</em> defines the visibility of a name (object) within a block of code. Names which are used in their own scope are called <em>local</em>. Names from superordinate scopes are called <em>global</em>
-Der <em>Scope</em> definiert die Sichtbarkeit eines Names (Objekts) innerhalb eines Code Blocks. Namen, welche in ihrem eigene Skope verwendet werden nennt man <em>lokal</em>. Namen aus übergeordenten Scopes nennt man <em>global</em>. This means for functions:</p>
+<p>The <em>scope</em> defines the visibility of a name (object) within a block of code. Names which are used in their own scope are called <em>local</em>. Names from an enclosing scope are called <em>global</em>. The local scope always supersedes the global scope. This means for functions:</p>
 <ul class="simple">
-<li><p>Names that are <strong>defined outside</strong> are <strong>visible</strong> within the function body.</p></li>
+<li><p>Names that are <strong>defined outside</strong> the function body are <strong>visible</strong> within the function body as global variables.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
     
 <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;I love Paris!&#39;</span>
@@ -417,21 +593,50 @@ Der <em>Scope</em> definiert die Sichtbarkeit eines Names (Objekts) innerhalb ei
 <span class="n">f</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>I love Paris!
+I love London!
+</pre></div>
+</div>
+</div>
+</div>
 <ul class="simple">
 <li><p>Names that are <strong>defined within</strong> the function body, are <strong>not visible</strong> outside.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">city</span><span class="p">):</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">city</span><span class="p">):</span>
     <span class="n">s2</span> <span class="o">=</span> <span class="s2">&quot;I love </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
 
 <span class="n">f</span><span class="p">(</span><span class="s1">&#39;Paris&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>   <span class="c1"># This throws a name error</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>I love Paris
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">44</span><span class="o">-</span><span class="n">b3ce25f1140c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">f</span><span class="p">(</span><span class="s1">&#39;Paris&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>   <span class="c1"># This throws a name error</span>
+
+<span class="ne">NameError</span>: name &#39;s2&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
 <ul class="simple">
-<li><p>Is a name defined both inside and outside, the <strong>local</strong> definition is valid within the function body.</p></li>
+<li><p>Is a name defined both inside and outside, the <strong>local</strong> definition supersedes the global within the function body.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s3</span> <span class="o">=</span> <span class="s2">&quot;I hate </span><span class="si">{}</span><span class="s2">&quot;</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s3</span> <span class="o">=</span> <span class="s2">&quot;I hate </span><span class="si">{}</span><span class="s2">&quot;</span>
 <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">city</span><span class="p">):</span>
     <span class="n">s3</span> <span class="o">=</span> <span class="s2">&quot;I love </span><span class="si">{}</span><span class="s2">&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">s3</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">city</span><span class="p">))</span>
@@ -440,24 +645,23 @@ Der <em>Scope</em> definiert die Sichtbarkeit eines Names (Objekts) innerhalb ei
 <span class="nb">print</span><span class="p">(</span><span class="n">s3</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Paris&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p><strong>Note:</strong></p>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>I love Paris
+I hate Paris
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-info">
+<p class="admonition-title">Note</p>
 <ul class="simple">
-<li><p>In principal it is possible to change global variables within the function body, if they are <code class="docutils literal notranslate"><span class="pre">mutable</span></code>. Such a function is called to have side effects. Usually this is <strong>not desired</strong>, since this can lead to errors, that are hard to identify.</p></li>
-<li><p>Python also offers the possiblity to change global <code class="docutils literal notranslate"><span class="pre">immutable</span></code> variables within the function body. Therefore the keyword <code class="docutils literal notranslate"><span class="pre">global</span></code> is introduced. For the same reasons as above, this is not recommended!</p></li>
+<li><p>In principal it is possible to change global variables within the function body, if they are <code class="docutils literal notranslate"><span class="pre">mutable</span></code>. Such a function is called to have side effects. Usually this is <strong>not desired</strong>, since this can lead to errors, that are hard to identify. This also applies to <code class="docutils literal notranslate"><span class="pre">mutable</span></code> arguments passed to a function.</p></li>
+<li><p>Python also offers the possibility to change global <code class="docutils literal notranslate"><span class="pre">immutable</span></code> variables within the function body. Therefore the keyword <code class="docutils literal notranslate"><span class="pre">global</span></code> is introduced. For the same reasons as above, this is not recommended!</p></li>
 </ul>
 </div>
-<div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Swap the order of tasks in the function body of the last example. What happens?</p></li>
-</ul>
-<p>Write the following functions with reasonable default values and a docstring:</p>
-<ul class="simple">
-<li><p>A function which checks, if a coordinate lies within a circle with centre <code class="docutils literal notranslate"><span class="pre">M</span></code> and radius <code class="docutils literal notranslate"><span class="pre">r</span></code> (in 2D).</p></li>
-<li><p>A function which returns the <a class="reference external" href="https://en.wikipedia.org/wiki/Dot_product">angle between two vectors</a> in radians.</p></li>
-<li><p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_congruential_generator">congruencial generator</a> with default values from “Numerical Recipes”.</p></li>
-<li><p>A function which returns the <a class="reference external" href="https://en.wikipedia.org/wiki/Optical_properties_of_water_and_ice">refractive index of water and ice</a> for wavelengths between 0.2 μm and 1.2 μm. Conditions as they are typically on earths surface (e.g. right now) should be used as default.</p></li>
-</ul>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 </div>
 
@@ -470,6 +674,8 @@ Der <em>Scope</em> definiert die Sichtbarkeit eines Names (Objekts) innerhalb ei
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="../exercises/program_flow_and_structure_exercise.html" title="previous page">Exercises</a>
+    <a class='right-next' id="next-link" href="../exercises/functions_exercise.html" title="next page">Exercise on functions</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
