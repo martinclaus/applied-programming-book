@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Object-oriented programming (OOP) &#8212; Applied Programming for Physics of the Earth System</title>
+    <title>Object-oriented Programming &#8212; Applied Programming for Physics of the Earth System</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -32,6 +32,8 @@
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Test your knowledge" href="../exercises/oop_exercise.html" />
+    <link rel="prev" title="Exercise on functions" href="../exercises/functions_exercise.html" />
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,8 +49,8 @@
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://martinclaus.github.io/applied-programming-book/content/basics/oop.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Object-oriented programming (OOP)" />
-<meta property="og:description" content="Object-oriented programming (OOP)  Object-oriented programming (OOP)is a programming paradigm (see introduction lecture), which allows to structure programmes i" />
+<meta property="og:title"       content="Object-oriented Programming" />
+<meta property="og:description" content="Object-oriented Programming  Object-oriented programming (OOP) is a programming paradigm, which allows to structure a program such that data and behavior are co" />
 <meta property="og:image"       content="https://martinclaus.github.io/applied-programming-book/_static/logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -105,6 +107,14 @@
   </li>
   <li class="">
     <a href="functions.html">Functions</a>
+  </li>
+  <li class="active">
+    <a href="">Object-oriented Programming</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="../exercises/oop_exercise.html">Test your knowledge</a>
+    </li>
+  </ul>
   </li>
 </ul>
 </nav>
@@ -167,7 +177,7 @@
 
         
     </div>
-    <div class="d-none d-md-block col-md-2 bd-toc show">
+    <div class="d-none d-md-block col-md-2 bd-toc ">
 <div class="tocsection onthispage pt-5 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
@@ -180,7 +190,7 @@
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#instances-objects" class="nav-link">Instances (objects)</a>
+            <a href="#instances" class="nav-link">Instances</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
@@ -199,10 +209,6 @@
             <a href="#inheritance" class="nav-link">Inheritance</a>
         </li>
     
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#test-your-knowledge" class="nav-link">Test your knowledge</a>
-        </li>
-    
     </ul>
 </nav>
 
@@ -214,84 +220,133 @@
         
               <div>
                 
-  <div class="section" id="object-oriented-programming-oop">
-<h1>Object-oriented programming (OOP)<a class="headerlink" href="#object-oriented-programming-oop" title="Permalink to this headline">¶</a></h1>
-<p>Object-oriented programming (OOP)is a programming paradigm (see introduction lecture), which allows to structure programmes in a way, that data and behaviour can be summarized in objects.</p>
-<p>For example, an object could represent a person. This person has characteristics (data) like name, age or address. Possible behaviour could be running, speaking or walking.</p>
-<p>We already used the object <code class="docutils literal notranslate"><span class="pre">Turtle</span></code>. It has characteristics like position and angle and behaviour like turning to the left or right and move foreward. With <code class="docutils literal notranslate"><span class="pre">Turtle</span></code> we already saw, that behaviour of an object can change its state (data). Additionally objects can also interact.</p>
-<p>So far we focussed on procedural programming. There tasks are collected as procedures (functions) and data is organized as data structures (lists, tuple, etc.). For OOP the object is the main element of the programming structure and a reasonable transcription of tasks in objects and their interactions is the essential component of the programming performance.</p>
-<p>With python one can, depending on the task, use procedural, object-oriented programming or a mixture of both, because it is a multi-paradigm programming language.</p>
+  <div class="section" id="object-oriented-programming">
+<h1>Object-oriented Programming<a class="headerlink" href="#object-oriented-programming" title="Permalink to this headline">¶</a></h1>
+<p>Object-oriented programming (OOP) is a programming paradigm, which allows to structure a program such that data and behavior are combined in objects.</p>
+<p>An example: an object could represent a person. This person has characteristics (data) like name, age or address. Possible behavior could be running, speaking or walking.</p>
+<p>We already used the object <code class="docutils literal notranslate"><span class="pre">Turtle</span></code>. It has characteristics like position and angle and behavior like turning to the left or right and move forward. With <code class="docutils literal notranslate"><span class="pre">Turtle</span></code> we already have seen, that behavior of an object can change its state, that is its data. Additionally objects can also interact with other objects.</p>
+<p>So far we have focused on procedural programming. There tasks are collected as procedures, i.e. functions, and data is organized as data structures (lists, tuple, etc.). For OOP, the object is the main element of the programming structure and a reasonable transcription of tasks in objects and their interactions is the essential component of the programming performance.</p>
+<p>With Python one can, depending on the task, use procedural programming, object-oriented programming or a mixture of both. Hence, it is a multi-paradigm programming language.</p>
 <div class="section" id="classes">
 <h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
-<p>Lets concentrate on the data first. Every object is an <em>instance</em> of a <em>class</em>. Classes serve to define new data structures from already existing ones (e.g. primitive data types, containers, different classes). They define the structure of an object, so to say classes are the objects blueprint.</p>
+<p>Lets concentrate on the data first. Every object is an <em>instance</em> of a <em>class</em>. Classes serve to define new data structures from already existing ones (e.g. primitive data types, containers, other classes). They define the structure of an object, so to say a class is the blueprint of an object.</p>
 <p>The simplest class does not contain any structure. It is defined as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">():</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;A simple class.&quot;&quot;&quot;</span>
     <span class="k">pass</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">pass</span></code> is a task, that does not do anything. However it is needed, since python requires a text inset after the <em>class signature</em>. Classes also have a <code class="docutils literal notranslate"><span class="pre">docstring</span></code>!</p>
-<p>As a convention, class names are the only names in python, which are written capitalized. For more complex names, the <a class="reference external" href="https://en.wikipedia.org/wiki/Camel_case">CamelCase notation</a> is used.</p>
 </div>
-<div class="section" id="instances-objects">
-<h2>Instances (objects)<a class="headerlink" href="#instances-objects" title="Permalink to this headline">¶</a></h2>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pass</span></code> is an instruction that does not do anything. However it is needed, since Python requires an indented code block following the <em>class signature</em>. Classes also have a <code class="docutils literal notranslate"><span class="pre">docstring</span></code>!</p>
+<p>As a convention, class names are the only names in Python, which are written capitalized. For more complex names, the <a class="reference external" href="https://en.wikipedia.org/wiki/Camel_case">CamelCase notation</a> is used.</p>
+</div>
+<div class="section" id="instances">
+<h2>Instances<a class="headerlink" href="#instances" title="Permalink to this headline">¶</a></h2>
 <p>If classes are blueprints, instances represent the products, which are build from them.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">():</span>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>To create an instance from a class, you have to put two round brackets after the name of the class, like when calling a function.</p>
+</div>
+<div class="cell tag_hide_output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;A simple dog class.&quot;&quot;&quot;</span>
     <span class="k">pass</span>
 
 <span class="n">jim</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
 <span class="n">george</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">jim</span> <span class="o">==</span> <span class="n">george</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">jim</span> <span class="ow">is</span> <span class="n">george</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Every instance of a class has the same structure, but the actual values of its properties can differ. With the instantiation (when an object is created), there is reserved enough memory to save all the data for every object. Objects are <code class="docutils literal notranslate"><span class="pre">mutable</span></code>, so a allocation creates a reference and not a copy.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">jim2</span> <span class="o">=</span> <span class="n">jim</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Every instance of a class has the same structure, but the actual values of its properties can differ. With the instantiation, when an object is created, there will be enough memory reserved to save all the data for every object. Objects are <code class="docutils literal notranslate"><span class="pre">mutable</span></code>, so a allocation creates a reference and not a copy.</p>
+<div class="cell tag_hide_output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jim2</span> <span class="o">=</span> <span class="n">jim</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">jim2</span> <span class="ow">is</span> <span class="n">jim</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If one wants to check, if a an object is created from a certain class, the function <code class="docutils literal notranslate"><span class="pre">isinstance(obj,</span> <span class="pre">class)</span></code> can be used.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">jim</span><span class="p">,</span> <span class="n">Dog</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">george</span><span class="p">,</span> <span class="n">Dog</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">jim</span><span class="p">,</span> <span class="n">george</span><span class="p">))</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
-<p><strong>Questions:</strong></p>
-<ul class="simple">
-<li><p>Of what type is <code class="docutils literal notranslate"><span class="pre">Dog</span></code>?</p></li>
-<li><p>Of what type is <code class="docutils literal notranslate"><span class="pre">Dog()</span></code>?</p></li>
-</ul>
+</div>
+</div>
+<p>If one wants to check, if a an object is created from a certain class, the function <code class="docutils literal notranslate"><span class="pre">isinstance(obj,</span> <span class="pre">class)</span></code> can be used.</p>
+<div class="cell tag_hide_output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">jim</span><span class="p">,</span> <span class="n">Dog</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">george</span><span class="p">,</span> <span class="n">Dog</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">jim</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">george</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>True
+True
+True
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="attributes-of-instances">
 <h2>Attributes of instances<a class="headerlink" href="#attributes-of-instances" title="Permalink to this headline">¶</a></h2>
-<p>Every class creates objects and every object can obtain properties, which are called attributes. To initialize attributes (to define its value at the creation of the object) the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method is used. All methods have at least one argument in their signature: the object itself, usually called <code class="docutils literal notranslate"><span class="pre">self</span></code>. As a convention this is left out while calling the method and is replaced by a reference on the instance automatically.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">():</span>
+<p>Every class creates objects and every object can obtain properties, which are called attributes. To initialize attributes (to define its value at the creation of the object) the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method is used. All methods have at least one argument in their signature: the object itself, usually called <code class="docutils literal notranslate"><span class="pre">self</span></code>. Conventionally, it is omitted when calling the method and it references the instance automatically.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Note that the arguments passed to the class on creation of an instance are forwarded to the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method. Since <code class="docutils literal notranslate"><span class="pre">__init__</span></code> is a method, its first argument is the newly created instance.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Simple Dog with attributes.&quot;&quot;&quot;</span>
     
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Set name, age and probably the address of the Dog.&quot;&quot;&quot;</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Constructor called&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;__init__ for </span><span class="si">{}</span><span class="s2"> called&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
 
-<span class="n">jim</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;Jim&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">jimbo</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s1">&#39;Jimbo&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span>
     <span class="s1">&#39;This is </span><span class="si">{}</span><span class="s1">, </span><span class="si">{}</span><span class="s1"> years old. He is living in </span><span class="si">{}</span><span class="s1">&#39;</span>
-    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">jim</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">jim</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="n">jim</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">jimbo</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">jimbo</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="n">jimbo</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
 <span class="p">)</span>
 
-<span class="n">jim</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="s1">&#39;Düsternbrooker Weg 20&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is </span><span class="si">{a.name}</span><span class="s1">, </span><span class="si">{a.age}</span><span class="s1"> years old. He is living in </span><span class="si">{a.address}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">jim</span><span class="p">))</span>
+<span class="n">jimbo</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="s1">&#39;Düsternbrooker Weg 20&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is </span><span class="si">{a.name}</span><span class="s1">, </span><span class="si">{a.age}</span><span class="s1"> years old. He is living in </span><span class="si">{a.address}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">jimbo</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>As one can see, while creating the object <code class="docutils literal notranslate"><span class="pre">jim</span></code>, the method <code class="docutils literal notranslate"><span class="pre">__init__</span></code> is called. The attributes of an object can be called by using the <code class="docutils literal notranslate"><span class="pre">.</span></code>-notation.</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>__init__ for Jimbo called
+This is Jimbo, 4 years old. He is living in 
+This is Jimbo, 4 years old. He is living in Düsternbrooker Weg 20
+</pre></div>
+</div>
+</div>
+</div>
+<p>As one can see, while creating the object <code class="docutils literal notranslate"><span class="pre">jimbo</span></code>, the method <code class="docutils literal notranslate"><span class="pre">__init__</span></code> is called. The attributes of an object can be accessed by using the <code class="docutils literal notranslate"><span class="pre">.</span></code> notation.</p>
 </div>
 <div class="section" id="class-attributes">
 <h2>Class attributes<a class="headerlink" href="#class-attributes" title="Permalink to this headline">¶</a></h2>
 <p>Instance attributes are different for every object of the class. There is also the possibility to define attributes for a whole class, which is then the same for all instances.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">():</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Person with class attribute.&quot;&quot;&quot;</span>
     
     <span class="c1"># class attribute</span>
@@ -302,27 +357,47 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
         
-<span class="n">jim</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;Jim&#39;</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
-<span class="n">george</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;George&#39;</span><span class="p">,</span> <span class="mi">61</span><span class="p">)</span>
+<span class="n">jimbo</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s1">&#39;Jimbo&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">george</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s1">&#39;George&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">jim</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">george</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">jimbo</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">george</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>To change a class attribute, the new value can be allocated on class level. Is the value allocated on instance level, a new instance attribute with the same name is created, which is then used preferably.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Dog</span><span class="o">.</span><span class="n">species</span> <span class="o">=</span> <span class="s1">&#39;Fish&#39;</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Mammal Mammal
+</pre></div>
+</div>
+</div>
+</div>
+<p>To change a class attribute, the new value can be assigned on the class level. Is the value assigned on instance level, a new instance attribute with the same name is created, which then supersedes the class attribute.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Dog</span><span class="o">.</span><span class="n">species</span> <span class="o">=</span> <span class="s1">&#39;Fish&#39;</span>
 <span class="n">judy</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s1">&#39;Judy&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">judy</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">jim</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">george</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">judy</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">jimbo</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">george</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>
 
 <span class="n">george</span><span class="o">.</span><span class="n">species</span> <span class="o">=</span> <span class="s1">&#39;Amphibian&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">judy</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">jim</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">george</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">george</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">judy</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">jimbo</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">george</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">george</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Fish Fish Fish
+Fish Fish Amphibian Fish
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="instance-methods">
 <h2>Instance methods<a class="headerlink" href="#instance-methods" title="Permalink to this headline">¶</a></h2>
-<p>Instance methods are defined inside the class and represent possible behaviour of an object. Method signatures always contain a reference to the instance as a first argument, usually called <code class="docutils literal notranslate"><span class="pre">self</span></code>. When calling the method, this argument is omitted and passed by python automatically. Besides, the same rules hold for method signatures as for function signatures.</p>
-<p>It is possible to access all instance attributes, class attributes or methods within the method body via the reference to the instance <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">():</span>
+<p>Instance methods are defined within the class and represent possible behavior of an object. We have already seen an example of a method, the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method which is always called when an instance is created.</p>
+<p>Method signatures are very much like a function signatures. However, it always contains a reference to the instance as the first argument, usually called <code class="docutils literal notranslate"><span class="pre">self</span></code>. When calling the method, this argument is omitted and is passed by Python automatically. Apart from that, the same rules hold for method signatures as for function signatures.</p>
+<p>Via the reference <code class="docutils literal notranslate"><span class="pre">self</span></code> to the instance, it is possible to access all instance attributes, class attributes or methods within the method body.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Simple Dog class with Method.&quot;&quot;&quot;</span>
     
     <span class="n">species</span> <span class="o">=</span> <span class="s2">&quot;Mammal&quot;</span>
@@ -338,19 +413,29 @@
     <span class="k">def</span> <span class="nf">get_older</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">+=</span> <span class="mi">1</span>
         
-<span class="n">jim</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;Jim&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
-<span class="n">jim</span><span class="o">.</span><span class="n">bark</span><span class="p">()</span>
+<span class="n">jimbo</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s1">&#39;Jimbo&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">jimbo</span><span class="o">.</span><span class="n">bark</span><span class="p">()</span>
 
-<span class="n">jim</span><span class="o">.</span><span class="n">species</span> <span class="o">=</span> <span class="s1">&#39;mammal&#39;</span>
-<span class="n">jim</span><span class="o">.</span><span class="n">bark</span><span class="p">()</span>
+<span class="n">jimbo</span><span class="o">.</span><span class="n">get_older</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">jimbo</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Jimbo is barking
+16
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="inheritance">
 <h2>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">¶</a></h2>
-<p>Inheritance is the process where a class takes attributes and behaviour from another class. The new class is called <em>subclass</em> and the original class is called <em>parent class</em>.</p>
-<p>The intention behind this is, that the subclass overwrites or extends parts of the parent class. That way, a new class can be created, which mostly keeps the functionality of the parent class, but differs in certain parts or offers new functionalities. E.g. we can differentiate dogs into races and introduce a new class attribute.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">():</span>
+<p>Inheritance is the process where a class takes attributes and behavior from another class. The new class is called <em>subclass</em> and the original class is called <em>parent class</em>.</p>
+<p>The intention behind this is that the subclass overwrites or extends parts of the parent class. That way, a new class can be created which mostly keeps the functionality of the parent class but differs in certain parts or offers new functionalities. E.g. we can differentiate dogs into breeds by introducing a new class attribute <code class="docutils literal notranslate"><span class="pre">breed</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Simple Dog class with Method.&quot;&quot;&quot;</span>
 
     <span class="n">species</span> <span class="o">=</span> <span class="s2">&quot;Mammal&quot;</span>
@@ -379,23 +464,33 @@
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> the </span><span class="si">{}</span><span class="s1"> is barking.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">breed</span><span class="p">))</span>
 
         
-<span class="n">judy</span> <span class="o">=</span> <span class="n">Labrador</span><span class="p">(</span><span class="s1">&#39;Judy&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
-<span class="n">jim</span> <span class="o">=</span> <span class="n">Dobermann</span><span class="p">(</span><span class="s1">&#39;Jim&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">)</span>
+<span class="n">judy</span> <span class="o">=</span> <span class="n">Labrador</span><span class="p">(</span><span class="s1">&#39;Judy&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">jim</span> <span class="o">=</span> <span class="n">Dobermann</span><span class="p">(</span><span class="s1">&#39;Jim&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
 <span class="n">judy</span><span class="o">.</span><span class="n">bark</span><span class="p">()</span>
 <span class="n">jim</span><span class="o">.</span><span class="n">bark</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Here the method <code class="docutils literal notranslate"><span class="pre">bark</span></code> is overwritten for both classes <code class="docutils literal notranslate"><span class="pre">Labrador</span></code> and <code class="docutils literal notranslate"><span class="pre">Dobermann</span></code> identically. This should be improved:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DogiWithBreed</span><span class="p">(</span><span class="n">Dog</span><span class="p">):</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Judy the Labrador is barking.
+Jim the Dobermann is barking.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here the method <code class="docutils literal notranslate"><span class="pre">bark</span></code> is overwritten for both subclasses <code class="docutils literal notranslate"><span class="pre">Labrador</span></code> and <code class="docutils literal notranslate"><span class="pre">Dobermann</span></code> identically. This should be improved:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DogWithBreed</span><span class="p">(</span><span class="n">Dog</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> the </span><span class="si">{}</span><span class="s1"> is barking.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">breed</span><span class="p">))</span>
 
-<span class="k">class</span> <span class="nc">Labrador</span><span class="p">(</span><span class="n">Dog</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">Labrador</span><span class="p">(</span><span class="n">DogWithBreed</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Simple class for Labrador.&quot;&quot;&quot;</span>
     <span class="n">breed</span> <span class="o">=</span> <span class="s2">&quot;Labrador&quot;</span>
         
-<span class="k">class</span> <span class="nc">Dobermann</span><span class="p">(</span><span class="n">Dog</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">Dobermann</span><span class="p">(</span><span class="n">DogWithBreed</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Simple class for Dobermann.&quot;&quot;&quot;</span>
     <span class="n">breed</span> <span class="o">=</span> <span class="s2">&quot;Dobermann&quot;</span>
 
@@ -406,23 +501,38 @@
 <span class="n">jim</span><span class="o">.</span><span class="n">bark</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Inharitance serves to specialize classes and to extend their behaviour. This prevents repetition of code and creates flexible programming structures. Sometimes one needs to rely on the parent class to extend the subclasses. In particular if the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method is wished to be overwritten. Then the function <a class="reference external" href="https://docs.python.org/3/library/functions.html#super"><code class="docutils literal notranslate"><span class="pre">super</span></code></a> is used.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DogWithBreed</span><span class="p">(</span><span class="n">Dog</span><span class="p">):</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Judy the Labrador is barking.
+Jim the Dobermann is barking.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Inheritance serves to specialize classes and to extend their behavior. This prevents repetition of code and creates flexible programming structures. Sometimes one needs use functionality of the parent class when extending the subclasses. In particular if the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method shall be overwritten. Then the function <a class="reference external" href="https://docs.python.org/3/library/functions.html#super"><code class="docutils literal notranslate"><span class="pre">super</span></code></a> is used.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DogWithBreed</span><span class="p">(</span><span class="n">Dog</span><span class="p">):</span>
     
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">special_breed</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
-        <span class="c1"># call __init__ from parent class but bound to this instance</span>
+        <span class="c1"># call __init__ from parent class but bound</span>
+        <span class="c1"># to this instance</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">special_breed</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">breed</span> <span class="o">=</span> <span class="n">special_breed</span>
         
     <span class="k">def</span> <span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> the </span><span class="si">{}</span><span class="s1"> is barking.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">breed</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> the </span><span class="si">{}</span><span class="s1"> is barking.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">breed</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
 
-<span class="k">class</span> <span class="nc">Labrador</span><span class="p">(</span><span class="n">Dog</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">Labrador</span><span class="p">(</span><span class="n">DogWithBreed</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Simple class for Labrador.&quot;&quot;&quot;</span>
     <span class="n">breed</span> <span class="o">=</span> <span class="s2">&quot;Labrador&quot;</span>
         
-<span class="k">class</span> <span class="nc">Dobermann</span><span class="p">(</span><span class="n">Dog</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">Dobermann</span><span class="p">(</span><span class="n">DogWithBreed</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Simple class for Dobermann.&quot;&quot;&quot;</span>
     <span class="n">breed</span> <span class="o">=</span> <span class="s2">&quot;Dobermann&quot;</span>
 
@@ -434,21 +544,15 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="test-your-knowledge">
-<h2>Test your knowledge<a class="headerlink" href="#test-your-knowledge" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>What is a class?</p></li>
-<li><p>What is an instance (object)?</p></li>
-<li><p>What is the relationship between class and object?</p></li>
-<li><p>Which convention holds when naming classes?</p></li>
-<li><p>How is a class instanced?</p></li>
-<li><p>How do you access the attributes and methods of an object?</p></li>
-<li><p>What is a method?</p></li>
-<li><p>What purpose has <code class="docutils literal notranslate"><span class="pre">self</span></code>?</p></li>
-<li><p>What is the purpose of <code class="docutils literal notranslate"><span class="pre">__init__</span></code> and when is that method called?</p></li>
-<li><p>Describe how inheritance prevents repetitions in the code.</p></li>
-<li><p>Can a subclass overwrite properties or behaviour of the parent class?If yes, how?</p></li>
-</ul>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Judy the Labrador mix is barking.
+Jim the Dobermann is barking.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 </div>
 
@@ -461,6 +565,8 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="../exercises/functions_exercise.html" title="previous page">Exercise on functions</a>
+    <a class='right-next' id="next-link" href="../exercises/oop_exercise.html" title="next page">Test your knowledge</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
