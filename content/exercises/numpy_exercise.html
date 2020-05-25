@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; Applied Programming for Physics of the Earth System</title>
+    <title>Exercise on numpy &#8212; Applied Programming for Physics of the Earth System</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -28,10 +28,11 @@
     <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0-alpha.0/dist/embed.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="canonical" href="https://martinclaus.github.io/applied-programming-book/content/exercises/Untitled.html" />
+    <link rel="canonical" href="https://martinclaus.github.io/applied-programming-book/content/exercises/numpy_exercise.html" />
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Numpy" href="../scientific_computing/numpy.html" />
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,10 +46,10 @@
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://martinclaus.github.io/applied-programming-book/content/exercises/Untitled.html" />
+<meta property="og:url"         content="https://martinclaus.github.io/applied-programming-book/content/exercises/numpy_exercise.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="&lt;no title&gt;" />
-<meta property="og:description" content="" />
+<meta property="og:title"       content="Exercise on numpy" />
+<meta property="og:description" content="Exercise on numpy  How do you import numpy?  Name three different options to create a numpy array.  How do you get the shape of an array?  How do you get the da" />
 <meta property="og:image"       content="https://martinclaus.github.io/applied-programming-book/_static/logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -115,8 +116,13 @@
 <li class="navbar-special">
 <p class="margin-caption">Scientific Computing</p>
 </li>
-  <li class="">
+  <li class="active">
     <a href="../scientific_computing/numpy.html">Numpy</a>
+  <ul class="nav sidenav_l2">
+    <li class="active">
+      <a href="">Exercise on numpy</a>
+    </li>
+  </ul>
   </li>
 </ul>
 </nav>
@@ -148,7 +154,7 @@
                 <!-- ipynb file if we had a myst markdown file -->
                 
                 <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../../_sources/content/exercises/Untitled.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <a class="dropdown-buttons" href="../../_sources/content/exercises/numpy_exercise.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
                 <!-- Download PDF via print -->
                 <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
             </div>
@@ -167,10 +173,10 @@
             <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
             <div class="dropdown-buttons">
                 
-                <a class="binder-button" href="https://mybinder.org/v2/gh/martinclaus/applied-programming-book/master?urlpath=lab/tree/content/exercises/Untitled.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                <a class="binder-button" href="https://mybinder.org/v2/gh/martinclaus/applied-programming-book/master?urlpath=lab/tree/content/exercises/numpy_exercise.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
                 
                 
-                <a class="jupyterhub-button" href="https://weblab.uni-kiel.de/hub/user-redirect/git-pull?repo=https://github.com/martinclaus/applied-programming-book&urlpath=lab/tree/applied-programming-book/content/exercises/Untitled.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip" data-placement="left"><img class="jupyterhub-button-logo" src="../../_static/images/logo_jupyterhub.svg" alt="Interact on JupyterHub">JupyterHub</button></a>
+                <a class="jupyterhub-button" href="https://weblab.uni-kiel.de/hub/user-redirect/git-pull?repo=https://github.com/martinclaus/applied-programming-book&urlpath=lab/tree/applied-programming-book/content/exercises/numpy_exercise.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip" data-placement="left"><img class="jupyterhub-button-logo" src="../../_static/images/logo_jupyterhub.svg" alt="Interact on JupyterHub">JupyterHub</button></a>
                 
                 
             </div>
@@ -195,18 +201,72 @@
         
               <div>
                 
-  <p><strong>Exercise</strong>:</p>
+  <div class="section" id="exercise-on-numpy">
+<h1>Exercise on numpy<a class="headerlink" href="#exercise-on-numpy" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>What changes, if a number is changed to a float or to a complex number while initializing?</p></li>
+<li><p>How do you import numpy?</p></li>
 </ul>
-<p><strong>Question:</strong></p>
 <ul class="simple">
-<li><p>What does <code class="docutils literal notranslate"><span class="pre">-1</span></code> mean above, where the method <code class="docutils literal notranslate"><span class="pre">reshape</span></code> is called?</p></li>
+<li><p>Name three different options to create a numpy array.</p></li>
 </ul>
-<p><strong>Exercise:</strong></p>
 <ul class="simple">
-<li><p>Write a function, which returns the angle between two n-dimensional vectors (1-dimensional array of length n) in radians. Use as many numpy functions as possible!</p></li>
+<li><p>How do you get the shape of an array?</p></li>
 </ul>
+<ul class="simple">
+<li><p>How do you get the data type of an array?</p></li>
+</ul>
+<ul class="simple">
+<li><p>What types can the elements of an numpy array have? Name four different ones.</p></li>
+</ul>
+<ul>
+<li><p>What type will have the arrays created from the following lists?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">l3</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">0</span><span class="n">j</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<ul class="simple">
+<li><p>What is the fundamental difference between a slice of a numpy array and a list?</p></li>
+</ul>
+<ul class="simple">
+<li><p>What is the meaning of <code class="docutils literal notranslate"><span class="pre">...</span></code> in an index tuple?</p></li>
+</ul>
+<ul class="simple">
+<li><p>Over which axis are multi-dimensional arrays iterated?</p></li>
+</ul>
+<ul>
+<li><p>Which shape does the following array has:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Test the performance difference between numpy and pure Python. Compute the square of 1000 numbers using both a list and a numpy array. You can measure the time for the computation by adding the cell magic <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit"><code class="docutils literal notranslate"><span class="pre">%%timeit</span></code></a> as the first line of the cell. Use one cell for each case. Note that <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit"><code class="docutils literal notranslate"><span class="pre">%%timeit</span></code></a> runs a lot of repetitions to get a more robust estimate of the run time.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Write a function that computes the angle in radians between two n-dimensional vectors. Use as many numpy functions as possible. The cosine of the angle between two vectors is given by</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ cos(\alpha) = \frac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}\]</div>
+<ul class="simple">
+<li><p>Extend the function above to take two multi-dimensional arrays as input. Interpret, by default, the data along the last axis as the vectors. However, also try to give the possibility to use another axis.</p></li>
+</ul>
+<ul class="simple">
+<li><p>How can you deal with missing data in numpy?</p></li>
+</ul>
+<ul class="simple">
+<li><p>How do you mask and unmask data?</p></li>
+</ul>
+<ul class="simple">
+<li><p>Draw ten random numbers which are uniformly distributed between zero and one.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Repeat intermediate level exercise 4 of the basic exercises but without using <code class="docutils literal notranslate"><span class="pre">Turtle</span></code>. First code a single canon ball shot. Then try to do all possible combinations of initial speed and angle within a single loop. Exploit numpys broadcasting capabilities!</p></li>
+</ul>
+</div>
 
 
               </div>
@@ -217,6 +277,7 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="../scientific_computing/numpy.html" title="previous page">Numpy</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
